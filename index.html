@@ -1,6 +1,4 @@
 
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -599,24 +597,37 @@ Iniciar Conversa no WhatsApp
 </a>
 </div>
 <div class="reveal" style="transition-delay:.15s">
-<form class="contact-form" onsubmit="submitForm(event)">
-<div class="fg"><label>Seu nome completo</label><input type="text" placeholder="Como posso te chamar?" required></div>
-<div class="fg"><label>E-mail ou WhatsApp</label><input type="text" placeholder="Seu melhor contato" required></div>
-<div class="fg">
-<label>Área de interesse</label>
-<select>
-<option value="">Selecione a área do seu caso</option>
-<option>Direito do Trabalho</option>
-<option>Direito Penal</option>
-<option>Direito Civil</option>
-<option>Consultoria Jurídica</option>
-<option>Compliance Trabalhista</option>
-<option>Direito Tributário</option>
-<option>Outra área</option>
-</select>
-</div>
-<div class="fg"><label>Descreva sua situação</label><textarea placeholder="Conte brevemente o que está acontecendo. Tudo é tratado com total sigilo."></textarea></div>
-<button type="submit" class="btn-submit">Enviar Mensagem</button>
+<<form class="contact-form" onsubmit="submitForm(event)">
+    <!-- Configurações ocultas para o e-mail -->
+    <input type="hidden" name="_subject" value="Novo contato pelo site: Sampaio & Oliveira!">
+    <input type="hidden" name="_captcha" value="false">
+
+    <div class="fg">
+        <label>Seu nome completo</label>
+        <input type="text" name="Nome" placeholder="Como posso te chamar?" required>
+    </div>
+    <div class="fg">
+        <label>E-mail ou WhatsApp</label>
+        <input type="text" name="Contato" placeholder="Seu melhor contato" required>
+    </div>
+    <div class="fg">
+        <label>Área de interesse</label>
+        <select name="Area">
+            <option value="">Selecione a área do seu caso</option>
+            <option value="Direito do Trabalho">Direito do Trabalho</option>
+            <option value="Direito Penal">Direito Penal</option>
+            <option value="Direito Civil">Direito Civil</option>
+            <option value="Consultoria Jurídica">Consultoria Jurídica</option>
+            <option value="Compliance Trabalhista">Compliance Trabalhista</option>
+            <option value="Direito Tributário">Direito Tributário</option>
+            <option value="Outra área">Outra área</option>
+        </select>
+    </div>
+    <div class="fg">
+        <label>Descreva sua situação</label>
+        <textarea name="Mensagem" placeholder="Conte brevemente o que está acontecendo. Tudo é tratado com total sigilo." required></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Enviar Mensagem</button>
 </form>
 </div>
 </div>
@@ -648,11 +659,42 @@ wa.style.cssText = 'display:inline-flex;margin:0 2rem 1.5rem;';
 }
 }
 function submitForm(e) {
-e.preventDefault();
-const btn = e.target.querySelector('.btn-submit');
-btn.textContent = 'Mensagem enviada!';
-btn.style.cssText = 'background:#2a6041;color:#fff;padding:1rem 2.5rem;border:none;cursor:pointer;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;align-self:flex-start;max-width:100%;';
-setTimeout(() => { btn.textContent = 'Enviar Mensagem'; btn.style.cssText = ''; e.target.reset(); }, 4000);
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.btn-submit');
+    const originalText = btn.textContent;
+    
+    // Mostra feedback visual enquanto envia
+    btn.textContent = 'Enviando...';
+    
+    // Coleta todos os dados do formulário
+    const formData = new FormData(form);
+    
+    // Envia os dados silenciosamente para o seu e-mail via API do FormSubmit
+    fetch('https://formsubmit.co/ajax/carlos.0109adv@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Altera o botão quando dá certo
+        btn.textContent = 'Mensagem enviada!';
+        btn.style.cssText = 'background:#2a6041;color:#fff;padding:1rem 2.5rem;border:none;cursor:pointer;font-size:.75rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;align-self:flex-start;max-width:100%;';
+        
+        // Volta ao normal após 4 segundos
+        setTimeout(() => { 
+            btn.textContent = originalText; 
+            btn.style.cssText = ''; 
+            form.reset(); 
+        }, 4000);
+    })
+    .catch(error => {
+        btn.textContent = 'Erro ao enviar.';
+        setTimeout(() => { btn.textContent = originalText; }, 4000);
+    });
 }
 </script>
 </body>
