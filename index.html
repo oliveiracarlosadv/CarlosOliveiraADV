@@ -1,4 +1,6 @@
 
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -292,6 +294,46 @@ footer img{height:26px;filter:brightness(0) invert(1);opacity:.45;}
     .wa-fab {bottom: 1rem; right: 1rem;}
 }
 </style>
+/* AJUSTE DEFINITIVO PARA IMAGENS E BOXES NO CELULAR */
+@media (max-width: 960px) {
+    .hero-img-side {
+        flex-direction: column; /* Força a imagem ficar em cima e as caixas embaixo */
+        height: auto;
+    }
+    .hero-photo {
+        position: relative;
+        width: 100%;
+        max-height: 50vh; /* Limita a altura da foto para não ocupar a tela toda */
+        object-fit: cover;
+    }
+    .hero-stats {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 100%;
+        margin-top: 0; 
+        z-index: 5;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Trava 100% a tela para evitar rolagens horizontais */
+    body, html {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+    }
+    .hero-img-side {
+        min-height: auto;
+    }
+    /* Garante que as imagens da seção Sobre não fujam da caixa */
+    .sobre-img-main img, .traj-foto img {
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+}
 </head>
 <body>
 
