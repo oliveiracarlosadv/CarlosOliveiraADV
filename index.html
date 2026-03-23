@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,6 +17,681 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview — Popup Avaliações Google · Sampaio &amp; Oliveira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Página de preview ─────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+    }
+    .preview-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.3);
+      text-align: center;
+    }
+    .preview-hint {
+      font-size: .78rem;
+      color: rgba(255,255,255,.25);
+      text-align: center;
+      max-width: 480px;
+      line-height: 1.7;
+    }
+    .preview-hint code {
+      background: rgba(201,168,76,.12);
+      border: 1px solid rgba(201,168,76,.25);
+      color: #C9A84C;
+      padding: .15rem .45rem;
+      border-radius: 3px;
+      font-size: .72rem;
+    }
+
+    /* ══════════════════════════════════════════
+       POPUP DE AVALIAÇÕES GOOGLE
+       Cole tudo abaixo no seu HTML (antes de </body>)
+    ═══════════════════════════════════════════ */
+
+    /* ── Variáveis ── */
+    :root {
+      --gold:    #C9A84C;
+      --gold-lt: #dbbe6e;
+      --black:   #0d0d0d;
+      --dark:    #141414;
+      --dark-2:  #1a1a1a;
+      --navy:    #0B1F3A;
+      --border:  rgba(201,168,76,.2);
+      --white:   #ffffff;
+    }
+
+    /* ── Botão flutuante lateral ── */
+    #review-trigger {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 9998;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .6rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: 1.2rem .55rem;
+      border-radius: 6px 0 0 6px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      box-shadow: -3px 0 22px rgba(201,168,76,.25);
+      transition: background .2s, box-shadow .2s, transform .2s;
+      user-select: none;
+    }
+    #review-trigger:hover {
+      background: var(--gold-lt);
+      box-shadow: -4px 0 30px rgba(201,168,76,.4);
+      transform: translateY(-50%) translateX(-3px);
+    }
+    #review-trigger .star-icon {
+      writing-mode: horizontal-tb;
+      font-size: .9rem;
+      line-height: 1;
+      transform: rotate(90deg);
+    }
+
+    /* ── Overlay ── */
+    #review-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(4px);
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    #review-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── Painel principal ── */
+    #review-panel {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) translateX(110%);
+      z-index: 10000;
+      width: min(420px, calc(100vw - 2rem));
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: 10px 0 0 10px;
+      overflow: hidden;
+      box-shadow: -8px 0 60px rgba(0,0,0,.6), -1px 0 0 rgba(201,168,76,.15);
+      transition: transform .45s cubic-bezier(.22,1,.36,1);
+    }
+    #review-panel.active {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    /* ── Cabeçalho do painel ── */
+    .rp-header {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d1829 100%);
+      padding: 1.6rem 1.8rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .rp-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .rp-close {
+      position: absolute;
+      top: 1rem; right: 1.2rem;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.6);
+      width: 30px; height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s, color .2s;
+      line-height: 1;
+    }
+    .rp-close:hover { background: rgba(255,255,255,.14); color: #fff; }
+
+    .rp-google-row {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: 1rem;
+    }
+    .rp-google-icon {
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    }
+    .rp-google-icon svg { width: 22px; height: 22px; }
+    .rp-platform {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .58rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .rp-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .92rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .rp-stars-display {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      margin-bottom: .3rem;
+    }
+    .rp-stars-display .star { color: #fbbc05; font-size: 1.25rem; }
+    .rp-score {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+    }
+    .rp-count {
+      font-size: .75rem;
+      color: rgba(255,255,255,.4);
+    }
+
+    .rp-tagline {
+      font-size: .8rem;
+      color: rgba(255,255,255,.55);
+      line-height: 1.6;
+      margin-top: .6rem;
+    }
+
+    /* ── Corpo ── */
+    .rp-body {
+      padding: 1.4rem 1.8rem 1.6rem;
+    }
+
+    /* Carrossel de avaliações */
+    .rp-carousel {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1.4rem;
+    }
+    .rp-slides {
+      display: flex;
+      transition: transform .4s cubic-bezier(.4,0,.2,1);
+    }
+    .rp-slide {
+      min-width: 100%;
+    }
+    .rp-review-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 6px;
+      padding: 1.1rem 1.2rem;
+      position: relative;
+    }
+    .rp-review-card::before {
+      content: '\201C';
+      position: absolute;
+      top: -.3rem; left: .9rem;
+      font-size: 3rem;
+      color: rgba(201,168,76,.18);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    .rp-reviewer {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: .7rem;
+    }
+    .rp-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #000;
+      flex-shrink: 0;
+    }
+    .rp-reviewer-info { flex: 1; min-width: 0; }
+    .rp-reviewer-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--white);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .rp-reviewer-date {
+      font-size: .68rem;
+      color: rgba(255,255,255,.35);
+      margin-top: .1rem;
+    }
+    .rp-review-stars { display: flex; gap: 2px; }
+    .rp-review-stars .s { color: #fbbc05; font-size: .85rem; }
+    .rp-review-text {
+      font-size: .8rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.65;
+    }
+
+    /* Dots do carrossel */
+    .rp-dots {
+      display: flex;
+      justify-content: center;
+      gap: .4rem;
+      margin-top: .8rem;
+    }
+    .rp-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      border: none;
+      padding: 0;
+    }
+    .rp-dot.active {
+      background: var(--gold);
+      transform: scale(1.25);
+    }
+
+    /* Separador */
+    .rp-sep {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,.2), transparent);
+      margin: 1.2rem 0;
+    }
+
+    /* CTA principal */
+    .rp-cta-box {
+      text-align: center;
+    }
+    .rp-cta-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .3rem;
+    }
+    .rp-cta-sub {
+      font-size: .75rem;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .rp-btn-google {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      background: var(--gold);
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .9rem 1.8rem;
+      border-radius: 4px;
+      text-decoration: none;
+      border: 2px solid var(--gold);
+      width: 100%;
+      transition: background .2s, border-color .2s, transform .2s, box-shadow .2s;
+    }
+    .rp-btn-google:hover {
+      background: var(--gold-lt);
+      border-color: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(201,168,76,.35);
+    }
+    .rp-btn-google svg { width: 18px; height: 18px; }
+
+    .rp-disclaimer {
+      font-size: .66rem;
+      color: rgba(255,255,255,.22);
+      text-align: center;
+      margin-top: .7rem;
+      line-height: 1.5;
+    }
+
+    /* ── Notificação toast (aparece ao abrir) ── */
+    #review-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 5.5rem;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      padding: .6rem 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: .05em;
+      white-space: nowrap;
+      z-index: 9997;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,.4);
+    }
+    #review-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    #review-toast .toast-star { font-size: .85rem; }
+
+    /* ── Responsivo mobile ── */
+    @media (max-width: 500px) {
+      #review-panel {
+        width: 100vw;
+        top: auto;
+        bottom: 0;
+        right: 0;
+        border-radius: 14px 14px 0 0;
+        border-right: 1px solid var(--border);
+        transform: translateX(0) translateY(110%);
+        top: auto;
+      }
+      #review-panel.active {
+        transform: translateX(0) translateY(0);
+        top: auto;
+      }
+      #review-trigger {
+        writing-mode: horizontal-tb;
+        top: auto;
+        bottom: 7rem;
+        transform: none;
+        border-radius: 6px 0 0 6px;
+        padding: .75rem .6rem;
+        flex-direction: row;
+        gap: .4rem;
+      }
+      #review-trigger:hover {
+        transform: translateX(-3px);
+      }
+      #review-trigger .star-icon { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <p class="preview-label">Pré-visualização do componente</p>
+  <p class="preview-hint">
+  </p>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       INÍCIO DO BLOCO A COPIAR PARA O SEU SITE (Código 3.0)
+       Cole antes de </body>, após o bloco do WhatsApp flutuante
+  ════════════════════════════════════════════════════════════════ -->
+
+  <!-- INICIO POPUP AVALIAÇÕES -->
+
+  <!-- Botão lateral gatilho -->
+  <button id="review-trigger" onclick="openReviewPanel()" aria-label="Ver avaliações no Google">
+    <span class="star-icon">★</span>
+    Avaliações
+  </button>
+
+  <!-- Overlay de fundo -->
+  <div id="review-overlay" onclick="closeReviewPanel()"></div>
+
+  <!-- Painel principal -->
+  <div id="review-panel" role="dialog" aria-modal="true" aria-label="Avaliações Google">
+
+    <!-- Cabeçalho -->
+    <div class="rp-header">
+      <button class="rp-close" onclick="closeReviewPanel()" aria-label="Fechar">&#x2715;</button>
+
+      <div class="rp-google-row">
+        <div class="rp-google-icon">
+          <!-- Ícone Google oficial (SVG inline) -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <div>
+          <div class="rp-platform">Google · Avaliações</div>
+          <div class="rp-brand">Sampaio &amp; Oliveira Advogados</div>
+        </div>
+      </div>
+
+      <div class="rp-stars-display">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="rp-score">5,0</span>
+      </div>
+      <div class="rp-count">Baseado nas avaliações do Google Maps</div>
+      <p class="rp-tagline">Clientes reais. Resultados reais. Veja o que dizem sobre o escritório.</p>
+    </div>
+
+    <!-- Corpo -->
+    <div class="rp-body">
+
+      <!-- Carrossel de avaliações -->
+      <div class="rp-carousel">
+        <div class="rp-slides" id="rpSlides">
+
+          <!-- Slide 1 -->
+          <div class="rp-slide">
+            <div class="rp-review-card">
+              <div class="rp-reviewer">
+                <div class="rp-avatar" style="background:#C9A84C;">MA</div>
+                <div class="rp-reviewer-info">
+                  <div class="rp-reviewer-name">Marcos Alves</div>
+                  <div class="rp-reviewer-date">há 2 semanas</div>
+                </div>
+                <div class="rp-review-stars">
+                  <span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span>
+                </div>
+              </div>
+              <p class="rp-review-text">Atendimento excepcional. O Dr. Carlos explicou todo o processo trabalhista de forma clara e objetiva. Resultado excelente, muito além do esperado. Recomendo fortemente.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="rp-slide">
+            <div class="rp-review-card">
+              <div class="rp-reviewer">
+                <div class="rp-avatar" style="background:#0B1F3A; color:#C9A84C; border: 1px solid #C9A84C;">PS</div>
+                <div class="rp-reviewer-info">
+                  <div class="rp-reviewer-name">Patricia Sousa</div>
+                  <div class="rp-reviewer-date">há 1 mês</div>
+                </div>
+                <div class="rp-review-stars">
+                  <span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span>
+                </div>
+              </div>
+              <p class="rp-review-text">Profissionalismo impecável. Meu caso criminal foi conduzido com muita competência e ética. Senti que estava em boas mãos desde a primeira consulta. Muito obrigada!</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="rp-slide">
+            <div class="rp-review-card">
+              <div class="rp-reviewer">
+                <div class="rp-avatar" style="background:#1a2e1a; color:#4caf50; border: 1px solid #4caf50;">RF</div>
+                <div class="rp-reviewer-info">
+                  <div class="rp-reviewer-name">Roberto Ferreira</div>
+                  <div class="rp-reviewer-date">há 3 semanas</div>
+                </div>
+                <div class="rp-review-stars">
+                  <span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span><span class="s">★</span>
+                </div>
+              </div>
+              <p class="rp-review-text">Contratei para assessoria jurídica empresarial e o resultado superou todas as expectativas. Escritório sério, comprometido e com excelente custo-benefício. Voltarei com certeza.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Navegação por pontos -->
+        <div class="rp-dots" id="rpDots">
+          <button class="rp-dot active" onclick="goToSlide(0)" aria-label="Avaliação 1"></button>
+          <button class="rp-dot" onclick="goToSlide(1)" aria-label="Avaliação 2"></button>
+          <button class="rp-dot" onclick="goToSlide(2)" aria-label="Avaliação 3"></button>
+        </div>
+      </div>
+
+      <div class="rp-sep"></div>
+
+      <!-- CTA -->
+      <div class="rp-cta-box">
+        <div class="rp-cta-title">Sua experiência importa para nós</div>
+        <div class="rp-cta-sub">Atendemos você com dedicação. Que tal compartilhar como foi?</div>
+        <a
+          href="https://g.page/r/CTiKiOLOGmyoEAI/review"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rp-btn-google"
+          onclick="closeReviewPanel()"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+            <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+            <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+            <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          </svg>
+          Avaliar no Google Agora
+        </a>
+        <p class="rp-disclaimer">Redirecionará para o Google Maps. Avaliações são públicas e voluntárias.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast de notificação -->
+  <div id="review-toast">
+    <span class="toast-star">★</span> Gostou do atendimento? Deixe sua avaliação!
+  </div>
+
+  <!-- FIM POPUP AVALIAÇÕES -->
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SCRIPT — Cole junto com os scripts existentes no Código 3.0
+  ════════════════════════════════════════════════════════════════ -->
+  <script>
+    /* ── Controle do painel ── */
+    function openReviewPanel() {
+      document.getElementById('review-panel').classList.add('active');
+      document.getElementById('review-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeReviewPanel() {
+      document.getElementById('review-panel').classList.remove('active');
+      document.getElementById('review-overlay').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    /* Fechar com ESC */
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeReviewPanel();
+    });
+
+    /* ── Carrossel automático ── */
+    let currentSlide = 0;
+    const totalSlides = 3;
+    let autoTimer;
+
+    function goToSlide(n) {
+      currentSlide = n;
+      document.getElementById('rpSlides').style.transform = 'translateX(-' + (n * 100) + '%)';
+      document.querySelectorAll('.rp-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === n);
+      });
+    }
+    function nextSlide() {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }
+    function startAuto() {
+      autoTimer = setInterval(nextSlide, 4500);
+    }
+    function stopAuto() {
+      clearInterval(autoTimer);
+    }
+    /* Pausa ao interagir */
+    document.getElementById('rpSlides').addEventListener('mouseenter', stopAuto);
+    document.getElementById('rpSlides').addEventListener('mouseleave', startAuto);
+    startAuto();
+
+    /* ── Toast após X segundos de permanência na página ── */
+    setTimeout(function() {
+      var toast = document.getElementById('review-toast');
+      toast.classList.add('show');
+      setTimeout(function() { toast.classList.remove('show'); }, 6000);
+    }, 18000); /* aparece após 18 segundos — ajuste conforme preferir */
+
+    /* Swipe touch no carrossel (mobile) */
+    var touchStartX = 0;
+    document.getElementById('rpSlides').addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    document.getElementById('rpSlides').addEventListener('touchend', function(e) {
+      var diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 40) {
+        stopAuto();
+        if (diff > 0) goToSlide((currentSlide + 1) % totalSlides);
+        else goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
+        startAuto();
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
+
 
   <style>
     /* ═══════════════════════════ RESET & BASE ═══════════════════════════ */
