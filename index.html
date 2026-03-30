@@ -16,6 +16,129 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<!-- POPUP LIVRO HOTMART -->
+<style>
+#popup-livro {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: #ffffff;
+    max-width: 720px;
+    width: 92%;
+    border-radius: 12px;
+    display: flex;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.popup-img {
+    width: 42%;
+    background: #f2f2f2;
+}
+
+.popup-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.popup-content {
+    padding: 35px;
+    width: 58%;
+}
+
+.popup-content h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.popup-content p {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 28px;
+    line-height: 1.6;
+}
+
+.popup-content a {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.popup-content a:hover {
+    background: #333;
+}
+
+.close-popup {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+    .popup-box {
+        flex-direction: column;
+    }
+    .popup-img, .popup-content {
+        width: 100%;
+    }
+}
+</style>
+
+<div id="popup-livro">
+    <div class="popup-box">
+        <span class="close-popup" onclick="fecharPopup()">✕</span>
+
+        <div class="popup-img">
+            <img src="https://hotmart.s3.amazonaws.com/product_pictures/199a7f4a-4035-4907-bbe8-fd8e6de35c1f/CapadoLivro.png" alt="Capa do Livro Rotinas DP">
+        </div>
+
+        <div class="popup-content">
+            <h2>📘 Rotinas de Departamento Pessoal</h2>
+            <p>
+                Um material prático e objetivo para quem deseja compreender
+                as principais rotinas do Departamento Pessoal, com segurança
+                jurídica e aplicação direta no dia a dia profissional.
+            </p>
+            <a href="https://carlos-0109adv.hotmart.host/rotinasdp" target="_blank">
+                Acessar o livro agora
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function fecharPopup() {
+    document.getElementById("popup-livro").style.display = "none";
+}
+
+setTimeout(function() {
+    document.getElementById("popup-livro").style.display = "flex";
+}, 5000);
+</script>
+<!-- FIM POPUP LIVRO -->
+
+  
+  
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
