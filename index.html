@@ -1,1374 +1,1523 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dr. Carlos Alexandre Albuquerque Oliveira — Advogado especialista em Direito do Trabalho, Direito Penal e Direito Civil em Belém, Pará. Sampaio e Oliveira Advogados.">
-  <meta name="keywords" content="advogado Belém, advogado trabalhista Pará, direito do trabalho, direito penal, Sampaio Oliveira Advogados">
-  <meta name="author" content="Carlos Alexandre Albuquerque Oliveira">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Dr. Carlos Oliveira | Advogado — Sampaio e Oliveira Advogados">
-  <meta property="og:description" content="Advocacia estratégica em Direito do Trabalho, Direito Penal e Direito Civil. Belém, Pará.">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pt_BR">
-  <title>Dr. Carlos Oliveira — Advogado | Sampaio e Oliveira Advogados</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       INÍCIO DO BLOCO A COPIAR PARA O SEU SITE (Código 3.0)
-       Cole antes de </body>, após o bloco do WhatsApp flutuante
-  ════════════════════════════════════════════════════════════════ -->
-
-  
-  <!-- ═══════════════════════════════════════════════════════════════
-       SCRIPT — Cole junto com os scripts existentes no Código 3.0
-  ════════════════════════════════════════════════════════════════ -->
-  <script>
-    /* ── Controle do painel ── */
-    function openReviewPanel() {
-      document.getElementById('review-panel').classList.add('active');
-      document.getElementById('review-overlay').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeReviewPanel() {
-      document.getElementById('review-panel').classList.remove('active');
-      document.getElementById('review-overlay').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    /* Fechar com ESC */
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeReviewPanel();
-    });
-
-    /* ── Carrossel automático ── */
-    let currentSlide = 0;
-    const totalSlides = 3;
-    let autoTimer;
-
-    function goToSlide(n) {
-      currentSlide = n;
-      document.getElementById('rpSlides').style.transform = 'translateX(-' + (n * 100) + '%)';
-      document.querySelectorAll('.rp-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === n);
-      });
-    }
-    function nextSlide() {
-      goToSlide((currentSlide + 1) % totalSlides);
-    }
-    function startAuto() {
-      autoTimer = setInterval(nextSlide, 4500);
-    }
-    function stopAuto() {
-      clearInterval(autoTimer);
-    }
-    /* Pausa ao interagir */
-    document.getElementById('rpSlides').addEventListener('mouseenter', stopAuto);
-    document.getElementById('rpSlides').addEventListener('mouseleave', startAuto);
-    startAuto();
-
-    /* ── Toast após X segundos de permanência na página ── */
-    setTimeout(function() {
-      var toast = document.getElementById('review-toast');
-      toast.classList.add('show');
-      setTimeout(function() { toast.classList.remove('show'); }, 6000);
-    }, 18000); /* aparece após 18 segundos — ajuste conforme preferir */
-
-    /* Swipe touch no carrossel (mobile) */
-    var touchStartX = 0;
-    document.getElementById('rpSlides').addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    document.getElementById('rpSlides').addEventListener('touchend', function(e) {
-      var diff = touchStartX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 40) {
-        stopAuto();
-        if (diff > 0) goToSlide((currentSlide + 1) % totalSlides);
-        else goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-        startAuto();
-      }
-    }, { passive: true });
-  </script>
-
-</body>
-</html>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos A. A. Oliveira | Advogado – OAB/PA 33996</title>
+  <meta name="description" content="Advocacia em Belém do Pará nas áreas Trabalhista, Civil, Tributário, Compliance e Servidor Público. OAB/PA 33996." />
+  <link rel="icon" type="image/x-icon" href="Visual/Favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="Visual/Favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="Visual/Favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="Visual/Favicon/favicon-16x16.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ═══════════════════════════ RESET & BASE ═══════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ──────────────────────────────────────────
+       VARIÁVEIS DE COR
+    ────────────────────────────────────────── */
     :root {
-      --black:      #0d0d0d;
-      --dark:       #141414;
-      --dark-2:     #1a1a1a;
-      --dark-3:     #222222;
-      --gold:       #C9A84C;
-      --gold-lt:    #dbbe6e;
-      --orange:     #e8672a;
-      --white:      #ffffff;
-      --gray:       #9a9a9a;
-      --gray-lt:    #cccccc;
-      --border:     rgba(201,168,76,.18);
-      --navy:       #0B1F3A;
+      --verde-escuro:  #043B1F;
+      --verde-medio:   #2A6B49;
+      --verde-cinza:   #4A6659;
+      --branco:        #FFFFFF;
+      --preto:         #050000;
+      --cinza-claro:   #F4F6F4;
+      --cinza-borda:   #D8E0DC;
+      --dourado:       #B8966A;
+      --transicao:     0.3s ease;
     }
+
+    /* ──────────────────────────────────────────
+       RESET E BASE
+    ────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: 'Open Sans', sans-serif; background: var(--black); color: var(--white); overflow-x: hidden; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--preto);
+      background: var(--branco);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
     a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
     img { display: block; max-width: 100%; }
 
-    /* ═══════════════════════════ NAVBAR ═══════════════════════════ */
-    #navbar {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%; height: 70px;
-      background: rgba(13,13,13,.96);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      backdrop-filter: blur(12px);
-      transition: all .3s;
+    .container {
+      width: 90%;
+      max-width: 1140px;
+      margin: 0 auto;
     }
-    .nav-logo img { height: 38px; }
-    .nav-links {
-      display: flex; gap: 2.2rem; list-style: none; align-items: center;
-    }
-    .nav-links a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .72rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: rgba(255,255,255,.65);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      background: var(--gold) !important;
-      color: #000 !important;
-      padding: .5rem 1.4rem !important;
-      border-radius: 3px;
-    }
-    .nav-cta:hover { background: var(--gold-lt) !important; color: #000 !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 1px; transition: all .3s; }
 
-    /* ═══════════════════════════ HERO ═══════════════════════════ */
-    #hero {
-      min-height: 100vh;
-      background: var(--black);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: end;
+    /* ──────────────────────────────────────────
+       BARRA SUPERIOR DE CONTATO
+    ────────────────────────────────────────── */
+    .topbar {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      font-size: 0.8rem;
+      padding: 8px 0;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .topbar a {
+      color: var(--branco);
+      opacity: 0.85;
+      transition: opacity var(--transicao);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .topbar a:hover { opacity: 1; }
+
+    .topbar-esquerda,
+    .topbar-direita {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* ──────────────────────────────────────────
+       CABEÇALHO / NAVEGAÇÃO
+    ────────────────────────────────────────── */
+    header {
+      background: var(--branco);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(4, 59, 31, 0.10);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .nav-logo img {
+      height: 52px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--verde-escuro);
+      letter-spacing: 0.03em;
+      transition: color var(--transicao);
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--verde-medio);
+      transition: width var(--transicao);
+    }
+
+    .nav-links a:hover { color: var(--verde-medio); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--verde-escuro);
+      color: var(--branco) !important;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background var(--transicao) !important;
+    }
+
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--verde-medio) !important; }
+
+    /* Hambúrguer */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--verde-escuro);
+      transition: all var(--transicao);
+    }
+
+    /* ──────────────────────────────────────────
+       HERO
+    ────────────────────────────────────────── */
+    .hero {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 90px 0 80px;
       position: relative;
       overflow: hidden;
-      padding-top: 70px;
-    }
-    .hero-bg-overlay {
-      position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(ellipse 55% 60% at 70% 100%, rgba(201,168,76,.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 40% at 10% 20%, rgba(11,31,58,.4) 0%, transparent 60%);
-    }
-    .hero-grid-lines {
-      position: absolute; inset: 0; pointer-events: none;
-      background-image: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,.015) 80px);
-    }
-    .hero-left {
-      position: relative; z-index: 2;
-      padding: 8rem 4rem 6rem 8%;
-      display: flex; flex-direction: column; gap: 1.6rem;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: .6rem;
-      background: rgba(201,168,76,.1); border: 1px solid rgba(201,168,76,.25);
-      padding: .4rem 1rem; border-radius: 2px; width: fit-content;
-    }
-    .hero-badge::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--gold); flex-shrink: 0;
-    }
-    .hero-badge span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600;
-    }
-    h1.hero-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
-      font-weight: 900; line-height: 1.06;
-      color: var(--white);
-    }
-    h1.hero-title em {
-      display: block; font-style: normal; color: var(--gold);
-    }
-    .hero-sub {
-      font-family: 'Open Sans', sans-serif;
-      font-size: clamp(.95rem, 1.4vw, 1.1rem);
-      color: rgba(255,255,255,.55);
-      line-height: 1.7; max-width: 440px;
-    }
-    .hero-divider { width: 56px; height: 3px; background: linear-gradient(90deg, var(--gold), transparent); }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: .4rem; }
-    .btn-primary {
-      display: inline-flex; align-items: center; gap: .6rem;
-      background: var(--gold); color: #000;
-      padding: .95rem 2.2rem;
-      font-family: 'Montserrat', sans-serif; font-size: .75rem; font-weight: 700;
-      letter-spacing: .12em; text-transform: uppercase;
-      border-radius: 3px; border: 2px solid var(--gold);
-      transition: all .3s;
-    }
-    .btn-primary:hover { background: var(--gold-lt); border-color: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,.3); }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: .6rem;
-      background: transparent; color: rgba(255,255,255,.75);
-      padding: .95rem 2.2rem;
-      font-family: 'Montserrat', sans-serif; font-size: .75rem; font-weight: 600;
-      letter-spacing: .12em; text-transform: uppercase;
-      border-radius: 3px; border: 2px solid rgba(255,255,255,.2);
-      transition: all .3s;
-    }
-    .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
-    .hero-stats {
-      display: flex; gap: 2.5rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,.07);
-    }
-    .stat-num {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; display: block;
-    }
-    .stat-lbl {
-      font-size: .62rem; letter-spacing: .12em; text-transform: uppercase;
-      color: rgba(255,255,255,.35); margin-top: .3rem; display: block;
-    }
-    .hero-right {
-      position: relative; z-index: 2;
-      display: flex; align-items: flex-end; justify-content: center;
-      padding-right: 5%;
-    }
-    .hero-photo-frame {
-      position: relative; width: 100%; max-width: 500px;
-    }
-    .hero-photo-frame::after {
-      content: ''; position: absolute; bottom: 0; right: -20px;
-      width: 100%; height: 80%;
-      border: 1px solid rgba(201,168,76,.2); border-radius: 2px; z-index: -1;
-    }
-    .hero-photo-frame img {
-      width: 100%; display: block;
-      border-radius: 2px 2px 0 0; object-fit: cover; object-position: top center;
-      max-height: 620px;
     }
 
-    /* ═══════════════════════════ BARRA DE NÚMEROS ═══════════════════════════ */
-    #numeros {
-      background: var(--dark-2);
-      border-top: 1px solid rgba(255,255,255,.05);
-      border-bottom: 1px solid rgba(255,255,255,.05);
-      padding: 3rem 8%;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232A6B49' fill-opacity='0.12'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.4;
     }
-    .numeros-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
+
+    .hero .container {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-texto h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero-texto .subtitulo {
+      font-size: 1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.70);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-texto p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .hero-acoes {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transicao);
+      border: 2px solid transparent;
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primario {
+      background: #25D366;
+      color: var(--branco);
+      border-color: #25D366;
+    }
+
+    .btn-primario:hover {
+      background: #1ebe5a;
+      border-color: #1ebe5a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-secundario {
+      background: transparent;
+      color: var(--branco);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    .btn-secundario:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--branco);
+      transform: translateY(-2px);
+    }
+
+    .hero-foto {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-foto-quadro {
+      position: relative;
+      width: 340px;
+      height: 420px;
+    }
+
+    .hero-foto-quadro::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: -16px;
+      bottom: -16px;
+      border: 2px solid var(--verde-medio);
+      border-radius: 8px;
+      z-index: 0;
+    }
+
+    .hero-foto-quadro img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 8px;
+      filter: brightness(0.95);
+    }
+
+    /* ──────────────────────────────────────────
+       BARRA DE DESTAQUE OAB
+    ────────────────────────────────────────── */
+    .barra-oab {
+      background: var(--verde-medio);
+      color: var(--branco);
       text-align: center;
-    }
-    .num-item {
-      padding: 1.5rem 2rem;
-      border-right: 1px solid rgba(255,255,255,.07);
-    }
-    .num-item:last-child { border-right: none; }
-    .num-val {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      font-weight: 900; color: var(--gold); line-height: 1; display: block;
-    }
-    .num-desc {
-      font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
-      color: rgba(255,255,255,.45); margin-top: .6rem; display: block;
+      padding: 16px 20px;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      font-weight: 500;
     }
 
-    /* ═══════════════════════════ SEÇÃO GENÉRICA ═══════════════════════════ */
-    section { padding: 7rem 8%; }
-    .sec-label {
-      display: inline-flex; align-items: center; gap: .7rem;
-      margin-bottom: .8rem;
+    .barra-oab span {
+      opacity: 0.75;
+      margin: 0 10px;
     }
-    .sec-label::before { content: ''; display: block; width: 28px; height: 2px; background: var(--gold); }
-    .sec-label span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .62rem; letter-spacing: .22em; text-transform: uppercase;
-      color: var(--gold); font-weight: 700;
+
+    /* ──────────────────────────────────────────
+       CONTATO RÁPIDO (FIXO)
+    ────────────────────────────────────────── */
+    .contato-fixo {
+      position: fixed;
+      right: 24px;
+      bottom: 28px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
     }
-    .sec-title {
-      font-family: 'Montserrat', sans-serif;
+
+    .contato-fixo a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--branco);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: all var(--transicao);
+      white-space: nowrap;
+    }
+
+    .btn-whats {
+      background: #25D366;
+    }
+
+    .btn-whats:hover {
+      background: #1ebe5a;
+      transform: scale(1.04);
+    }
+
+    /* ──────────────────────────────────────────
+       SEÇÕES GERAIS
+    ────────────────────────────────────────── */
+    section { padding: 80px 0; }
+
+    .secao-titulo {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .secao-titulo .label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--verde-medio);
+      margin-bottom: 12px;
+    }
+
+    .secao-titulo h2 {
+      font-family: 'Playfair Display', serif;
       font-size: clamp(1.8rem, 3vw, 2.6rem);
-      font-weight: 800; color: var(--white); line-height: 1.15;
+      color: var(--verde-escuro);
+      font-weight: 700;
+      line-height: 1.25;
     }
-    .sec-title.dark { color: var(--black); }
 
-    /* ═══════════════════════════ SOBRE ═══════════════════════════ */
+    .secao-titulo p {
+      margin-top: 16px;
+      color: var(--verde-cinza);
+      max-width: 580px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .divisor {
+      width: 48px;
+      height: 3px;
+      background: var(--verde-medio);
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ──────────────────────────────────────────
+       SOBRE MIM
+    ────────────────────────────────────────── */
     #sobre {
-      background: var(--white);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 7rem; align-items: center;
+      background: var(--cinza-claro);
     }
-    .sobre-img-wrap { position: relative; }
-    .sobre-img-wrap img {
-      width: 100%; border-radius: 2px; display: block; object-fit: cover; height: 560px;
-    }
-    .sobre-oab-badge {
-      position: absolute; bottom: -22px; left: -22px;
-      background: var(--gold); color: #000; padding: 1.2rem 1.6rem; border-radius: 2px;
-      text-align: center; z-index: 2;
-    }
-    .sobre-oab-badge .nb {
-      font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; display: block; line-height: 1;
-    }
-    .sobre-oab-badge .lb {
-      font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; margin-top: 4px; display: block;
-    }
-    .sobre-border {
-      position: absolute; bottom: -28px; right: -28px;
-      width: 58%; height: 42%;
-      border: 2px solid rgba(201,168,76,.3); border-radius: 2px; z-index: 0;
-    }
-    .sobre-content { display: flex; flex-direction: column; gap: 1.4rem; }
-    .sobre-text {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 1rem; color: #3a4a60; line-height: 1.85;
-    }
+
     .sobre-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; margin-top: .5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
     }
-    .sobre-item {
-      display: flex; align-items: flex-start; gap: .7rem;
-    }
-    .sobre-ico {
-      width: 32px; height: 32px; background: rgba(201,168,76,.12);
-      border: 1px solid rgba(201,168,76,.25); border-radius: 2px;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-    .sobre-ico svg { width: 15px; height: 15px; fill: var(--gold); }
-    .sobre-item-txt { font-size: .82rem; font-weight: 500; color: #3a4a60; line-height: 1.4; }
 
-    /* ═══════════════════════════ ÁREAS DE ATUAÇÃO ═══════════════════════════ */
-    #areas {
-      background: var(--dark);
-      position: relative; overflow: hidden;
+    .sobre-foto-wrap {
+      position: relative;
     }
-    #areas::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+
+    .sobre-foto-wrap img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(4, 59, 31, 0.18);
     }
-    .areas-header { text-align: center; max-width: 560px; margin: 0 auto 4rem; }
-    .areas-header .sec-label { justify-content: center; }
-    .areas-header p {
-      font-size: 1rem; color: rgba(255,255,255,.5); line-height: 1.7; margin-top: 1rem;
+
+    .sobre-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 20px 24px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(4, 59, 31, 0.30);
     }
+
+    .sobre-badge .numero {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      display: block;
+      line-height: 1;
+    }
+
+    .sobre-badge .legenda {
+      font-size: 0.78rem;
+      opacity: 0.80;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .sobre-conteudo h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      color: var(--verde-escuro);
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.25;
+    }
+
+    .sobre-conteudo p {
+      color: #3a3a3a;
+      margin-bottom: 16px;
+      font-size: 0.97rem;
+      line-height: 1.85;
+    }
+
+    .sobre-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .sobre-tag {
+      background: var(--verde-escuro);
+      color: var(--branco);
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* ──────────────────────────────────────────
+       ÁREAS DE ATUAÇÃO
+    ────────────────────────────────────────── */
+    #areas { background: var(--branco); }
+
     .areas-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px;
-      background: rgba(201,168,76,.08);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
     }
+
     .area-card {
-      background: var(--dark); padding: 2.5rem 2rem;
-      position: relative; overflow: hidden; transition: background .3s;
-    }
-    .area-card::before {
-      content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px;
-      background: var(--gold); transition: width .4s;
-    }
-    .area-card:hover { background: rgba(255,255,255,.03); }
-    .area-card:hover::before { width: 100%; }
-    .area-num {
-      position: absolute; top: 1.4rem; right: 1.6rem;
-      font-family: 'Montserrat', sans-serif; font-size: 3rem;
-      color: rgba(201,168,76,.06); font-weight: 800; line-height: 1;
-    }
-    .area-icon {
-      width: 46px; height: 46px; border: 1px solid var(--border); border-radius: 2px;
-      display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;
-    }
-    .area-icon svg { width: 22px; height: 22px; fill: var(--gold); }
-    .area-name {
-      font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: var(--white);
-      font-weight: 700; margin-bottom: .8rem;
-    }
-    .area-desc { font-size: .84rem; color: rgba(255,255,255,.42); line-height: 1.72; }
-    .area-cta-card {
-      background: rgba(201,168,76,.06) !important;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; gap: 1.4rem;
-    }
-    .area-cta-card p {
-      font-family: 'Montserrat', sans-serif; font-size: 1rem; color: rgba(255,255,255,.65);
-    }
-
-    /* ═══════════════════════════ DESTAQUES ═══════════════════════════ */
-    #destaques { background: var(--black); padding: 5rem 8%; }
-    .destaques-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; }
-    .destaque-card {
-      position: relative; overflow: hidden; min-height: 340px;
-      display: flex; align-items: flex-end;
-    }
-    .destaque-card img {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; transition: transform .6s;
-    }
-    .destaque-card:hover img { transform: scale(1.04); }
-    .destaque-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(0deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.2) 60%, transparent 100%);
-    }
-    .destaque-content {
-      position: relative; z-index: 2; padding: 2.5rem;
-    }
-    .destaque-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .6rem; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); font-weight: 700; margin-bottom: .6rem; display: block;
-    }
-    .destaque-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 1rem; line-height: 1.3;
-    }
-
-    /* ═══════════════════════════ SERVIÇOS (cards carrossel) ═══════════════════════════ */
-    #servicos {
-      background: var(--dark-2);
+      border: 1px solid var(--cinza-borda);
+      border-radius: 10px;
+      padding: 36px 30px;
+      transition: all var(--transicao);
+      cursor: default;
+      position: relative;
       overflow: hidden;
     }
-    .servicos-header { margin-bottom: 3rem; }
-    .servicos-header p {
-      font-size: .95rem; color: rgba(255,255,255,.5); margin-top: .8rem; max-width: 560px;
-    }
-    .servicos-track {
-      display: grid; grid-template-columns: repeat(4, 280px); gap: 1.2rem;
-      overflow-x: auto; padding-bottom: 1rem;
-      scrollbar-width: thin; scrollbar-color: rgba(201,168,76,.3) transparent;
-    }
-    .servico-card {
-      background: var(--dark-3); border: 1px solid rgba(255,255,255,.06);
-      border-radius: 2px; overflow: hidden; flex-shrink: 0;
-      transition: border-color .3s, transform .3s;
-    }
-    .servico-card:hover { border-color: rgba(201,168,76,.3); transform: translateY(-4px); }
-    .servico-card-img {
-      width: 100%; height: 180px; object-fit: cover;
-    }
-    .servico-card-body { padding: 1.4rem; }
-    .servico-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .58rem; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); font-weight: 700; margin-bottom: .5rem; display: block;
-    }
-    .servico-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .95rem; font-weight: 700; color: var(--white); margin-bottom: .6rem; line-height: 1.35;
-    }
-    .servico-desc { font-size: .8rem; color: rgba(255,255,255,.42); line-height: 1.65; margin-bottom: 1rem; }
-    .servico-link {
-      font-family: 'Montserrat', sans-serif;
-      font-size: .7rem; font-weight: 600; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--gold);
-      display: inline-flex; align-items: center; gap: .4rem;
-      transition: gap .2s;
-    }
-    .servico-link:hover { gap: .7rem; }
-    .hint-scroll {
-      font-size: .72rem; color: rgba(255,255,255,.3); margin-top: 1.2rem;
-      letter-spacing: .05em;
+
+    .area-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--verde-medio);
+      transition: width var(--transicao);
+      z-index: 0;
     }
 
-    /* ═══════════════════════════ DIFERENCIAIS ═══════════════════════════ */
-    #diferenciais {
-      background: var(--white);
-      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;
+    .area-card:hover {
+      border-color: var(--verde-medio);
+      box-shadow: 0 8px 32px rgba(4, 59, 31, 0.10);
+      transform: translateY(-4px);
     }
-    .dif-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
-    .dif-item {
-      display: flex; gap: 1.1rem; align-items: flex-start;
-      padding: 1.4rem; background: #f9f7f2;
-      border-left: 3px solid var(--gold); border-radius: 0 2px 2px 0;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .dif-item:hover { transform: translateX(4px); box-shadow: 4px 0 18px rgba(0,0,0,.06); }
-    .dif-ico { flex-shrink: 0; margin-top: 2px; }
-    .dif-ico svg { width: 22px; height: 22px; fill: var(--gold); }
-    .dif-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .9rem; color: var(--black); margin-bottom: .3rem; }
-    .dif-text { font-size: .83rem; color: #3a4a60; line-height: 1.65; }
-    .dif-right { display: flex; flex-direction: column; gap: 2.5rem; }
-    .tl-head {
-      font-family: 'Montserrat', sans-serif; font-size: 1.3rem; color: var(--black); margin-bottom: 1.5rem; font-weight: 700;
-    }
-    .timeline { display: flex; flex-direction: column; position: relative; }
-    .timeline::before { content: ''; position: absolute; left: 9px; top: 8px; bottom: 8px; width: 1px; background: rgba(201,168,76,.35); }
-    .tl-item { display: flex; gap: 1.4rem; padding-bottom: 1.8rem; position: relative; }
-    .tl-dot {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--white); border: 2px solid var(--gold);
-      flex-shrink: 0; position: relative; z-index: 1;
-    }
-    .tl-year { font-size: .68rem; color: var(--gold); font-weight: 700; letter-spacing: .08em; margin-bottom: .2rem; }
-    .tl-course { font-size: .87rem; font-weight: 700; color: var(--black); margin-bottom: .18rem; }
-    .tl-inst { font-size: .77rem; color: #7a8fa8; }
-    .dif-cta-box {
-      background: var(--navy); border-radius: 2px; padding: 2rem;
-      border: 1px solid rgba(201,168,76,.18);
-    }
-    .dif-cta-box p { font-family: 'Montserrat', sans-serif; font-size: 1.05rem; color: #fff; margin-bottom: .7rem; }
-    .dif-cta-box small { font-size: .8rem; color: rgba(255,255,255,.45); display: block; margin-bottom: 1.4rem; line-height: 1.6; }
 
-    /* ═══════════════════════════ FAQ ═══════════════════════════ */
-    #faq { background: #f9f7f2; }
-    .faq-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
-    .faq-side p { margin-top: 1rem; font-size: .86rem; color: #3a4a60; line-height: 1.7; }
-    .faq-list { display: flex; flex-direction: column; }
-    .faq-item { border-bottom: 1px solid rgba(0,0,0,.08); }
-    .faq-q {
-      width: 100%; border: none; padding: 1.35rem 0; text-align: left;
-      font-family: 'Montserrat', sans-serif; font-size: .9rem; font-weight: 600;
-      color: var(--black); cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-      transition: color .2s; background: none;
-    }
-    .faq-q:hover { color: var(--gold); }
-    .faq-toggle {
-      width: 22px; height: 22px; border: 1.5px solid currentColor; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; font-size: 1rem; transition: transform .3s;
-    }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
-    .faq-a-inner { padding-bottom: 1.3rem; font-size: .85rem; color: #3a4a60; line-height: 1.75; }
-    .faq-item.open .faq-a { max-height: 300px; }
-    .faq-item.open .faq-toggle { transform: rotate(45deg); color: var(--gold); }
-    .faq-item.open .faq-q { color: var(--gold); }
+    .area-card:hover::before { width: 100%; opacity: 0.06; }
 
-    /* ═══════════════════════════ CONTATO ═══════════════════════════ */
-    #contato {
-      background: var(--dark);
-      position: relative; overflow: hidden;
+    .area-icone {
+      width: 52px;
+      height: 52px;
+      background: rgba(42, 107, 73, 0.10);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-    #contato::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .contato-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .contato-desc {
-      font-size: 1rem; color: rgba(255,255,255,.5); line-height: 1.82; margin-top: 1.2rem; margin-bottom: 2rem;
-    }
-    .channels { display: flex; flex-direction: column; gap: .85rem; }
-    .ch-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 1.2rem; background: rgba(255,255,255,.04);
-      border: 1px solid var(--border); border-radius: 2px;
-      text-decoration: none; transition: background .2s, border-color .2s;
-    }
-    .ch-item:hover { background: rgba(201,168,76,.07); border-color: rgba(201,168,76,.45); }
-    .ch-icon { width: 44px; height: 44px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .ch-icon svg { width: 23px; height: 23px; }
-    .ch-lbl { font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.38); }
-    .ch-val { font-size: .88rem; font-weight: 600; color: #fff; }
-    .contato-right { display: flex; flex-direction: column; gap: 2rem; }
-    .info-box {
-      background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 2px; padding: 2rem;
-    }
-    .info-box h3 {
-      font-family: 'Montserrat', sans-serif; font-size: 1.1rem; color: #fff; margin-bottom: 1.2rem; font-weight: 700;
-    }
-    .info-row {
-      display: flex; align-items: flex-start; gap: .9rem;
-      padding: .75rem 0; border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .info-row:last-child { border-bottom: none; }
-    .info-row svg { width: 18px; height: 18px; fill: var(--gold); flex-shrink: 0; margin-top: 2px; }
-    .info-lbl { font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: .15rem; }
-    .info-val { font-size: .88rem; color: rgba(255,255,255,.8); font-weight: 500; }
-    /* Formulário */
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .fg { display: flex; flex-direction: column; gap: .4rem; }
-    .fg label { font-size: .63rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.35); font-family: 'Montserrat', sans-serif; font-weight: 600; }
-    .fg input, .fg textarea, .fg select {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1);
-      color: var(--white); font-family: 'Open Sans', sans-serif; font-size: .88rem;
-      padding: .8rem 1rem; outline: none; transition: border-color .25s;
-      width: 100%; -webkit-appearance: none; box-sizing: border-box; border-radius: 2px;
-    }
-    .fg select option { background: #1a1a1a; }
-    .fg input:focus, .fg textarea:focus, .fg select:focus { border-color: var(--gold); }
-    .fg textarea { min-height: 100px; resize: vertical; }
-    ::placeholder { color: rgba(255,255,255,.18); }
-    .btn-form {
-      padding: 1rem; background: var(--gold); color: #000;
-      font-family: 'Montserrat', sans-serif; font-size: .73rem; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase; border: none; cursor: pointer;
-      border-radius: 2px; transition: all .3s; width: 100%;
-    }
-    .btn-form:hover { background: var(--gold-lt); }
 
-    /* ═══════════════════════════ BARRA SOCIAL ═══════════════════════════ */
-    .social-bar {
-      background: #111; padding: 1.4rem 8%;
-      display: flex; align-items: center; justify-content: center;
-      gap: 2.5rem; flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,.05);
+    .area-icone svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--verde-medio);
+      fill: none;
+      stroke-width: 1.8;
     }
-    .social-bar a {
-      display: flex; align-items: center; gap: .55rem;
-      text-decoration: none; font-size: .73rem; font-weight: 500;
-      color: rgba(255,255,255,.45); letter-spacing: .05em;
-      transition: color .2s;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .social-bar a:hover { color: rgba(255,255,255,.85); }
-    .social-bar svg { width: 18px; height: 18px; opacity: .6; transition: opacity .2s; }
-    .social-bar a:hover svg { opacity: 1; }
 
-    /* ═══════════════════════════ RODAPÉ ═══════════════════════════ */
+    .area-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--verde-escuro);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .area-card p {
+      font-size: 0.91rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* ──────────────────────────────────────────
+       FORMAÇÃO
+    ────────────────────────────────────────── */
+    #formacao { background: var(--verde-escuro); color: var(--branco); }
+
+    #formacao .secao-titulo h2 { color: var(--branco); }
+    #formacao .secao-titulo p { color: rgba(255,255,255,0.70); }
+    #formacao .secao-titulo .label { color: rgba(255,255,255,0.55); }
+    #formacao .divisor { background: rgba(255,255,255,0.35); }
+
+    .formacao-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .formacao-bloco h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: rgba(255,255,255,0.60);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+    }
+
+    .formacao-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 22px;
+      align-items: flex-start;
+    }
+
+    .formacao-dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      background: var(--verde-medio);
+      border-radius: 50%;
+      margin-top: 7px;
+    }
+
+    .formacao-item p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.65;
+    }
+
+    .formacao-item strong {
+      display: block;
+      color: var(--branco);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* ──────────────────────────────────────────
+       CONTATO
+    ────────────────────────────────────────── */
+    #contato { background: var(--cinza-claro); }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contato-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--verde-escuro);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .contato-info > p {
+      color: var(--verde-cinza);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+
+    .contato-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contato-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--branco);
+      border-radius: 8px;
+      border: 1px solid var(--cinza-borda);
+      transition: all var(--transicao);
+      text-decoration: none;
+      color: var(--preto);
+    }
+
+    .contato-item:hover {
+      border-color: var(--verde-medio);
+      box-shadow: 0 4px 16px rgba(4, 59, 31, 0.10);
+      transform: translateX(4px);
+    }
+
+    .contato-item-icone {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contato-item-icone svg {
+      width: 22px;
+      height: 22px;
+      stroke-width: 1.8;
+      fill: none;
+    }
+
+    .icone-verde { background: rgba(42,107,73,0.12); }
+    .icone-verde svg { stroke: var(--verde-medio); }
+    .icone-whats { background: rgba(37,211,102,0.12); }
+    .icone-whats svg { stroke: #25D366; }
+    .icone-email { background: rgba(74,102,89,0.12); }
+    .icone-email svg { stroke: var(--verde-cinza); }
+
+    .contato-item-texto span {
+      display: block;
+      font-size: 0.75rem;
+      color: #999;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .contato-item-texto strong {
+      font-size: 0.97rem;
+      color: var(--preto);
+      font-weight: 600;
+    }
+
+    /* Redes Sociais */
+    .redes-titulo {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #999;
+      margin: 28px 0 14px;
+    }
+
+    .redes-lista {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .rede-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--branco);
+      transition: all var(--transicao);
+      border: none;
+    }
+
+    .rede-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+    .rede-btn svg { width: 16px; height: 16px; fill: var(--branco); }
+
+    .rede-instagram { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
+    .rede-linkedin  { background: #0A66C2; }
+    .rede-tiktok    { background: #010101; }
+    .rede-canal     { background: #25D366; }
+
+    /* Avaliações Google */
+    .google-cta {
+      margin-top: 30px;
+      padding: 20px 24px;
+      background: var(--branco);
+      border-radius: 10px;
+      border: 1px solid var(--cinza-borda);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all var(--transicao);
+      text-decoration: none;
+      color: var(--preto);
+    }
+
+    .google-cta:hover {
+      border-color: var(--verde-medio);
+      box-shadow: 0 4px 16px rgba(4,59,31,0.10);
+    }
+
+    .google-estrelas { font-size: 1.1rem; color: #FBBC05; }
+
+    .google-cta-texto span {
+      display: block;
+      font-size: 0.75rem;
+      color: #999;
+      font-weight: 500;
+    }
+
+    .google-cta-texto strong {
+      font-size: 0.92rem;
+      color: var(--verde-escuro);
+    }
+
+    /* Formulário / CTA */
+    .contato-cta {
+      background: var(--verde-escuro);
+      border-radius: 12px;
+      padding: 44px 40px;
+      color: var(--branco);
+    }
+
+    .contato-cta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .contato-cta p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 32px;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .cta-acoes {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cta-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px 20px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: all var(--transicao);
+      color: var(--branco);
+      text-decoration: none;
+      border: 1px solid transparent;
+    }
+
+    .cta-link-whats {
+      background: #25D366;
+    }
+
+    .cta-link-whats:hover {
+      background: #1ebe5a;
+      transform: translateX(4px);
+    }
+
+    .cta-link-email {
+      background: transparent;
+      border-color: rgba(255,255,255,0.30);
+    }
+
+    .cta-link-email:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.55);
+      transform: translateX(4px);
+    }
+
+    .cta-link svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    /* ──────────────────────────────────────────
+       RODAPÉ
+    ────────────────────────────────────────── */
     footer {
-      background: var(--black);
-      border-top: 1px solid rgba(255,255,255,.06);
-      padding: 3rem 8% 2rem;
+      background: var(--preto);
+      color: rgba(255,255,255,0.65);
+      padding: 40px 0 28px;
     }
-    .footer-top {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1.2rem; margin-bottom: 2rem;
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .footer-logo img { height: 32px; filter: brightness(0) invert(1); opacity: .5; }
-    .footer-oab { font-size: .72rem; color: rgba(255,255,255,.28); letter-spacing: .04em; }
+
+    .footer-logo img { height: 40px; width: auto; opacity: 0.90; }
+    .footer-logo p {
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .footer-redes {
+      display: flex;
+      gap: 14px;
+    }
+
+    .footer-rede {
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transicao);
+    }
+
+    .footer-rede:hover { background: var(--verde-medio); }
+
+    .footer-rede svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(255,255,255,0.75);
+    }
+
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.06); padding-top: 1.4rem;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
-    .footer-copy { font-size: .73rem; color: rgba(255,255,255,.22); }
-    .footer-disc { font-size: .68rem; color: rgba(255,255,255,.18); max-width: 440px; text-align: right; line-height: 1.55; }
-
-    /* ═══════════════════════════ WHATSAPP FLUTUANTE ═══════════════════════════ */
-    .wpp-float {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
-      display: flex; flex-direction: column; align-items: flex-end; gap: .6rem;
-    }
-    .wpp-bubble {
-      background: #fff; color: #000; padding: .55rem 1rem;
-      border-radius: 8px 8px 0 8px; font-size: .77rem; font-weight: 700;
-      box-shadow: 0 4px 20px rgba(0,0,0,.15); animation: blink 3s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.65} }
-    .wpp-btn {
-      width: 62px; height: 62px; background: #25D366; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none; box-shadow: 0 4px 20px rgba(37,211,102,.4);
-      transition: transform .2s, box-shadow .2s; animation: wpp-ring 2.8s infinite;
-    }
-    .wpp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,.55); }
-    .wpp-btn svg { width: 32px; height: 32px; fill: #fff; }
-    @keyframes wpp-ring {
-      0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4)}
-      50%{box-shadow:0 4px 30px rgba(37,211,102,.65),0 0 0 8px rgba(37,211,102,.1)}
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.78rem;
     }
 
-    /* ═══════════════════════════ FADE IN ═══════════════════════════ */
-    .fi { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
-    .fi.vis { opacity: 1; transform: translateY(0); }
+    .footer-bottom a { color: rgba(255,255,255,0.50); transition: color var(--transicao); }
+    .footer-bottom a:hover { color: var(--branco); }
 
-    /* ═══════════════════════════ RESPONSIVO ═══════════════════════════ */
-    @media (max-width: 960px) {
-      section { padding: 5rem 5%; }
-      #hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 6rem 5% 3rem; }
-      .hero-right { padding: 0 5%; justify-content: center; }
-      .hero-photo-frame { max-width: 340px; }
-      #numeros { padding: 2.5rem 5%; }
-      .numeros-grid { grid-template-columns: 1fr; }
-      .num-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.07); }
-      .num-item:last-child { border-bottom: none; }
-      #sobre { grid-template-columns: 1fr; gap: 3.5rem; }
-      .sobre-img-wrap img { height: 380px; }
-      .sobre-oab-badge { left: 10px; }
-      .sobre-grid { grid-template-columns: 1fr; }
+    /* ──────────────────────────────────────────
+       AVISO ÉTICO OAB
+    ────────────────────────────────────────── */
+    .aviso-oab {
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 14px 0;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.6;
+    }
+
+    /* ──────────────────────────────────────────
+       RESPONSIVO
+    ────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero .container { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+      .hero-texto p { margin: 0 auto 40px; }
+      .hero-acoes { justify-content: center; }
+      .hero-foto { order: -1; }
+      .hero-foto-quadro { width: 260px; height: 320px; }
+
+      .sobre-grid      { grid-template-columns: 1fr; }
+      .sobre-foto-wrap { display: none; }
+      .formacao-grid   { grid-template-columns: 1fr; }
+      .contato-grid    { grid-template-columns: 1fr; }
+      .footer-grid     { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--branco); padding: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); gap: 16px; }
+      .nav-links.aberto { display: flex; }
+      .nav-toggle { display: flex; }
+      .topbar .container { justify-content: center; }
+      .topbar-esquerda { display: none; }
       .areas-grid { grid-template-columns: 1fr; }
-      .destaques-grid { grid-template-columns: 1fr; }
-      .servicos-track { grid-template-columns: repeat(4, 260px); }
-      #diferenciais { grid-template-columns: 1fr; gap: 3rem; }
-      .faq-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .contato-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .footer-top, .footer-bottom { flex-direction: column; text-align: center; }
-      .footer-disc { text-align: center; max-width: 100%; }
-      .nav-links {
-        display: none; flex-direction: column; position: fixed;
-        top: 70px; left: 0; right: 0; background: var(--black);
-        padding: 2rem; gap: 1.2rem; border-bottom: 1px solid var(--border);
-      }
-      .nav-links.open { display: flex; }
-      .hamburger { display: flex; }
     }
-    @media (max-width: 560px) {
-      .hero-stats { flex-wrap: wrap; gap: 1rem; }
-      .hero-actions { flex-direction: column; }
-      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+
+    @media (max-width: 480px) {
+      section { padding: 60px 0; }
+      .contato-cta { padding: 30px 24px; }
+      .hero { padding: 60px 0; }
     }
   </style>
 </head>
 <body>
 
-<!-- ════════════════════════ NAVBAR ════════════════════════ -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    <img src="https://i.postimg.cc/25XGpLjf/00-COLORIDO300DPI.png" alt="Sampaio e Oliveira Advogados — Logo">
-  </a>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Abrir menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#sobre"       onclick="closeMenu()">Sobre</a></li>
-    <li><a href="#areas"       onclick="closeMenu()">Áreas de Atuação</a></li>
-    <li><a href="#diferenciais" onclick="closeMenu()">Diferenciais</a></li>
-    <li><a href="#faq"         onclick="closeMenu()">Dúvidas</a></li>
-    <li><a href="#contato"     onclick="closeMenu()" class="nav-cta">Fale Conosco</a></li>
-  </ul>
-</nav>
-
-<!-- ════════════════════════ HERO ════════════════════════ -->
-<section id="hero" aria-label="Apresentação do Dr. Carlos Oliveira">
-  <div class="hero-bg-overlay"></div>
-  <div class="hero-grid-lines"></div>
-
-  <div class="hero-left">
-    <div class="hero-badge"><span>Advogado sócio-fundador · Sampaio &amp; Oliveira Advogados</span></div>
-
-    <h1 class="hero-title">
-      ADVOCACIA ARTESANAL<br>
-      <em>focada em estratégia,<br>economia e resultado.</em>
-    </h1>
-
-    <div class="hero-divider"></div>
-
-    <p class="hero-sub">
-      Defesa técnica, planejamento jurídico e atendimento humanizado em Direito do Trabalho, Penal e Civil. Belém, Pará.
-    </p>
-
-    <div class="hero-actions">
-      <a href="https://wa.me/5591998277601?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-primary">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Fale com o Dr. Carlos Agora
-      </a>
-      <a href="#sobre" class="btn-secondary">Conheça o Escritório &rarr;</a>
-    </div>
-
-    <div class="hero-stats">
-      <div>
-        <span class="stat-num">+6</span>
-        <span class="stat-lbl">Anos de atuação</span>
+  <!-- ══════════════════════════════════════
+       BARRA SUPERIOR
+  ══════════════════════════════════════ -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-esquerda">
+        <a href="tel:+5591986061300">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+          (91) 98606-1300
+        </a>
+        <a href="mailto:carlos.0109adv@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          carlos.0109adv@gmail.com
+        </a>
       </div>
-      <div>
-        <span class="stat-num">4</span>
-        <span class="stat-lbl">Pós-graduações</span>
-      </div>
-      <div>
-        <span class="stat-num">3</span>
-        <span class="stat-lbl">Áreas de atuação</span>
+      <div class="topbar-direita">
+        <a href="https://www.instagram.com/oliveiracarlosadv" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/oliveiracarlosadv" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.tiktok.com/@oliveiracarlosadv" target="_blank" rel="noopener">TikTok</a>
       </div>
     </div>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-photo-frame">
-      <img
-        src="https://i.postimg.cc/W3w3yCPk/7E43EBCE-E0EB-40C3-87CC-51543661F19A.jpg"
-        alt="Dr. Carlos Alexandre Albuquerque Oliveira, advogado especialista em Direito do Trabalho e Direito Penal em Belém do Pará"
-        loading="eager"
-      >
+  <!-- ══════════════════════════════════════
+       CABEÇALHO
+  ══════════════════════════════════════ -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="nav-logo">
+          <img src="Visual/Logo/Logo.png" alt="Carlos A. A. Oliveira Advogado" />
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#areas">Áreas de Atuação</a></li>
+          <li><a href="#formacao">Formação</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li>
+            <a href="https://api.whatsapp.com/send/?phone=5591986061300&text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.&type=phone_number&app_absent=0"
+               target="_blank" rel="noopener" class="nav-cta">
+              Fale Conosco
+            </a>
+          </li>
+        </ul>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
     </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-texto">
+        <p class="subtitulo">OAB/PA 33996 &nbsp;|&nbsp; Belém, Pará</p>
+        <h1>Carlos A. A. Oliveira<br/>Advogado</h1>
+        <p>
+          Advocacia comprometida com a excelência técnica, a ética e a defesa efetiva
+          dos direitos dos clientes nas áreas Trabalhista, Civil, Tributária e do Servidor Público.
+        </p>
+        <div class="hero-acoes">
+          <a href="https://api.whatsapp.com/send/?phone=5591986061300&text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.&type=phone_number&app_absent=0"
+             target="_blank" rel="noopener" class="btn btn-primario">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Consulta pelo WhatsApp
+          </a>
+          <a href="#areas" class="btn btn-secundario">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Áreas de Atuação
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-foto">
+        <div class="hero-foto-quadro">
+          <img src="Visual/Fotografias Advogado/7E43EBCE-E0EB-40C3-87CC-51543661F19A.jpeg"
+               alt="Dr. Carlos A. A. Oliveira" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       BARRA OAB
+  ══════════════════════════════════════ -->
+  <div class="barra-oab">
+    OAB/PA 33996 <span>|</span> Advocacia desde 2020 <span>|</span> Belém do Pará
   </div>
-</section>
 
-<!-- ════════════════════════ BARRA DE NÚMEROS ════════════════════════ -->
-<div id="numeros" aria-label="Números do escritório">
-  <div class="numeros-grid">
-    <div class="num-item fi">
-      <span class="num-val">OAB-PA</span>
-      <span class="num-desc">33.996 — Ordem dos Advogados do Brasil</span>
-    </div>
-    <div class="num-item fi">
-      <span class="num-val">+6 Anos</span>
-      <span class="num-desc">de advocacia estratégica em Belém do Pará</span>
-    </div>
-    <div class="num-item fi">
-      <span class="num-val">100%</span>
-      <span class="num-desc">Sigilo e ética em cada atendimento</span>
-    </div>
-  </div>
-</div>
+  <!-- ══════════════════════════════════════
+       SOBRE MIM
+  ══════════════════════════════════════ -->
+  <section id="sobre">
+    <div class="container">
+      <div class="sobre-grid">
 
-<!-- ════════════════════════ SOBRE ════════════════════════ -->
-<section id="sobre" aria-label="Sobre o advogado Carlos Oliveira">
-  <div class="sobre-img-wrap fi">
-    <img
-      src="https://i.postimg.cc/9MSjfBVm/IMG-2495.jpg"
-      alt="Dr. Carlos Oliveira em atendimento — advogado em Belém do Pará"
-      loading="lazy"
-    >
-    <div class="sobre-border"></div>
-    <div class="sobre-oab-badge">
-      <span class="nb">OAB-PA</span>
-      <span class="lb">33.996</span>
-    </div>
-  </div>
-
-  <div class="sobre-content fi">
-    <div class="sec-label"><span>Quem sou eu</span></div>
-    <h2 class="sec-title dark">Dr. Carlos Alexandre<br>Albuquerque Oliveira</h2>
-
-    <p class="sobre-text">
-      Advogado militante e sócio do escritório Sampaio Oliveira Advogados, com atuação voltada principalmente a demandas cíveis e trabalhistas, sem deixar de lado a advocacia criminal. Dentro do escritório, desempenho funções de coordenação geral, planejamento e marketing jurídico estratégico.
-    </p>
-    <p class="sobre-text">
-      Minha trajetória foi construída com base sólida no serviço público: ex-servidor da Polícia Civil do Pará, com expertise em gestão de unidades, cadeia de custódia e elaboração de procedimentos operacionais. Essa vivência influencia diretamente meu modo de advogar até hoje.
-    </p>
-
-    <div class="sobre-grid">
-      <div class="sobre-item">
-        <div class="sobre-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+        <div class="sobre-foto-wrap">
+          <img src="Visual/Fotografias Advogado/7E95164E-C7F6-43B0-B152-07C8EC9EFD65.jpg"
+               alt="Dr. Carlos A. A. Oliveira – Escritório" />
+          <div class="sobre-badge">
+            <span class="numero">5+</span>
+            <span class="legenda">anos de atuação</span>
+          </div>
         </div>
-        <span class="sobre-item-txt">Graduado em Direito pela Estácio (2019)</span>
-      </div>
-      <div class="sobre-item">
-        <div class="sobre-ico">
-          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
+
+        <div class="sobre-conteudo">
+          <span class="label" style="font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--verde-medio);display:block;margin-bottom:12px;">Sobre o advogado</span>
+          <h2>Carlos Alexandre Albuquerque Oliveira</h2>
+
+          <p>
+            Advogado militante inscrito na Ordem dos Advogados do Brasil sob o número OAB/PA 33996,
+            com atuação contínua e dedicada desde 2020. Formado em Direito pela Estácio FAP, em Belém
+            do Pará, construiu uma trajetória marcada pela especialização técnica progressiva, pelo
+            compromisso ético e pela capacidade de atuar em áreas jurídicas de alta complexidade.
+          </p>
+
+          <p>
+            Antes de concluir o curso, acumulou experiência prática como estagiário do Núcleo de
+            Práticas Jurídicas da Faculdade e como servidor público do Centro de Perícias Científicas
+            Renato Chaves, formando base sólida de conhecimento aplicado ao Direito. A partir de
+            junho de 2026, passou a atuar como advogado autônomo, com atuação personalizada e
+            estratégica para cada cliente.
+          </p>
+
+          <p>
+            Reconhecido pela postura responsável e pela comunicação clara, alia técnica, humanidade
+            e compromisso com a justiça em uma atuação sólida e confiável no cenário jurídico paraense.
+          </p>
+
+          <div class="sobre-tags">
+            <span class="sobre-tag">OAB/PA 33996</span>
+            <span class="sobre-tag">Pós-graduado</span>
+            <span class="sobre-tag">Ex-servidor público</span>
+            <span class="sobre-tag">Belém, Pará</span>
+          </div>
         </div>
-        <span class="sobre-item-txt">4 pós-graduações concluídas</span>
-      </div>
-      <div class="sobre-item">
-        <div class="sobre-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        </div>
-        <span class="sobre-item-txt">Ex-servidor da Polícia Civil do Pará</span>
-      </div>
-      <div class="sobre-item">
-        <div class="sobre-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-        </div>
-        <span class="sobre-item-txt">Especialista em compliance trabalhista</span>
+
       </div>
     </div>
+  </section>
 
-    <a href="https://wa.me/5591998277601?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-primary" style="width:fit-content;margin-top:.5rem;">
-      <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Agende sua Consulta
+  <!-- ══════════════════════════════════════
+       ÁREAS DE ATUAÇÃO
+  ══════════════════════════════════════ -->
+  <section id="areas">
+    <div class="container">
+      <div class="secao-titulo">
+        <span class="label">Especialidades</span>
+        <h2>Áreas de Atuação</h2>
+        <div class="divisor"></div>
+        <p>Atendimento jurídico especializado com foco na defesa efetiva dos direitos dos clientes.</p>
+      </div>
+
+      <div class="areas-grid">
+
+        <!-- Trabalhista -->
+        <div class="area-card">
+          <div class="area-icone">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+          </div>
+          <h3>Direito do Trabalho</h3>
+          <p>
+            Atuação ao lado do trabalhador e do empregador em reclamações trabalhistas, reconhecimento
+            de vínculo empregatício, verbas rescisórias, horas extras, assédio moral, compliance
+            trabalhista e defesa em fiscalizações do Ministério do Trabalho.
+          </p>
+        </div>
+
+        <!-- Civil -->
+        <div class="area-card">
+          <div class="area-icone">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Direito Civil</h3>
+          <p>
+            Indenizações por danos materiais e morais, conflitos contratuais, Direito de Família
+            (divórcio, guarda, alimentos, partilha), cobranças extrajudiciais e judiciais, e execução
+            de títulos com estratégia orientada a resultados.
+          </p>
+        </div>
+
+        <!-- Tributário -->
+        <div class="area-card">
+          <div class="area-icone">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3>Direito Tributário</h3>
+          <p>
+            Planejamento tributário lícito, impugnação de autuações fiscais, defesa administrativa e
+            judicial perante a Receita Federal, Sefaz estadual e municípios, além de atuação em
+            Direito Penal Tributário com visão interdisciplinar.
+          </p>
+        </div>
+
+        <!-- Servidor Público -->
+        <div class="area-card">
+          <div class="area-icone">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3>Servidor Público</h3>
+          <p>
+            Direitos remuneratórios, revisão de aposentadorias, defesa em processos administrativos
+            disciplinares, reintegração ao cargo, regimes de transição previdenciária e assessoria
+            com conhecimento específico da legislação do Estado do Pará.
+          </p>
+        </div>
+
+        <!-- Compliance -->
+        <div class="area-card">
+          <div class="area-icone">
+            <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <h3>Compliance Empresarial</h3>
+          <p>
+            Diagnóstico jurídico, estruturação de programas de compliance trabalhista e contratual,
+            adequação à LGPD, revisão de contratos com fornecedores e parceiros, governança interna
+            e prevenção de passivos jurídicos.
+          </p>
+        </div>
+
+        <!-- Contato CTA -->
+        <div class="area-card" style="background:var(--verde-escuro);border-color:var(--verde-escuro);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;">
+          <div class="area-icone" style="background:rgba(255,255,255,0.12);">
+            <svg viewBox="0 0 24 24" stroke="rgba(255,255,255,0.9)"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <h3 style="color:#fff;">Tem alguma dúvida jurídica?</h3>
+          <p style="color:rgba(255,255,255,0.75);">
+            Entre em contato para uma orientação inicial e verifique como posso ajudá-lo na sua situação específica.
+          </p>
+          <a href="https://api.whatsapp.com/send/?phone=5591986061300&text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.&type=phone_number&app_absent=0"
+             target="_blank" rel="noopener"
+             style="margin-top:24px;display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 22px;border-radius:6px;font-weight:600;font-size:0.9rem;transition:all 0.3s;">
+            <svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Falar pelo WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FORMAÇÃO
+  ══════════════════════════════════════ -->
+  <section id="formacao">
+    <div class="container">
+      <div class="secao-titulo">
+        <span class="label">Credenciais</span>
+        <h2>Formação e Qualificação</h2>
+        <div class="divisor"></div>
+        <p>Trajetória acadêmica e profissional construída com dedicação ao estudo permanente e à excelência técnica.</p>
+      </div>
+
+      <div class="formacao-grid">
+
+        <div class="formacao-bloco">
+          <h3>Graduação e Pós-Graduação</h3>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Bacharel em Direito</strong>
+              Estácio FAP – Belém/PA, 2019
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Pós-Graduação em Direito Penal e Criminologia</strong>
+              Instituto de Criminologia e Política Criminal
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Pós-Graduação em Direito Penal e Processo Penal</strong>
+              Centro Universitário Internacional UNINTER
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Pós-Graduação em Direito e Processo do Trabalho</strong>
+              Universidade da Amazônia
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Pós-Graduação em Direito Tributário e Processo Tributário</strong>
+              Faculdade Legale
+            </p>
+          </div>
+        </div>
+
+        <div class="formacao-bloco">
+          <h3>Experiência e Formação Complementar</h3>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Servidor Público – Polícia Civil do Estado do Pará</strong>
+              Experiência na área operacional e de gestão
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Centro de Perícias Científicas Renato Chaves</strong>
+              Gestão de coordenação, cadeia de custódia e procedimentos operacionais
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Escola Superior de Advocacia</strong>
+              Cursos e atualizações contínuas em Direito
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Instituto Brasileiro de Ciências Criminais</strong>
+              Laboratório de Ciências Criminais
+            </p>
+          </div>
+
+          <div class="formacao-item">
+            <div class="formacao-dot"></div>
+            <p>
+              <strong>Conselho Nacional de Justiça e ESMPF</strong>
+              Capacitações e cursos de atualização jurídica
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       CONTATO
+  ══════════════════════════════════════ -->
+  <section id="contato">
+    <div class="container">
+      <div class="secao-titulo">
+        <span class="label">Fale Conosco</span>
+        <h2>Entre em Contato</h2>
+        <div class="divisor"></div>
+        <p>Escolha o canal de sua preferência para iniciar o atendimento.</p>
+      </div>
+
+      <div class="contato-grid">
+
+        <div class="contato-info">
+          <h3>Canais de Atendimento</h3>
+          <p>Atendimento presencial e remoto. Agende sua consulta pelo canal de sua preferência.</p>
+
+          <div class="contato-lista">
+
+            <a href="https://api.whatsapp.com/send/?phone=5591986061300&text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.&type=phone_number&app_absent=0"
+               target="_blank" rel="noopener" class="contato-item">
+              <div class="contato-item-icone icone-whats">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#25D366"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div class="contato-item-texto">
+                <span>WhatsApp</span>
+                <strong>(91) 98606-1300</strong>
+              </div>
+            </a>
+
+            <a href="tel:+5591986061300" class="contato-item">
+              <div class="contato-item-icone icone-verde">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.09 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
+              </div>
+              <div class="contato-item-texto">
+                <span>Telefone</span>
+                <strong>(91) 98606-1300</strong>
+              </div>
+            </a>
+
+            <a href="mailto:carlos.0109adv@gmail.com" class="contato-item">
+              <div class="contato-item-icone icone-email">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="contato-item-texto">
+                <span>E-mail</span>
+                <strong>carlos.0109adv@gmail.com</strong>
+              </div>
+            </a>
+
+            <a href="http://www.oliveiracarlos.adv.br" target="_blank" rel="noopener" class="contato-item">
+              <div class="contato-item-icone icone-verde">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              </div>
+              <div class="contato-item-texto">
+                <span>Site</span>
+                <strong>www.oliveiracarlos.adv.br</strong>
+              </div>
+            </a>
+
+          </div>
+
+          <p class="redes-titulo">Redes Sociais</p>
+          <div class="redes-lista">
+            <a href="https://www.instagram.com/oliveiracarlosadv" target="_blank" rel="noopener" class="rede-btn rede-instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.linkedin.com/in/oliveiracarlosadv" target="_blank" rel="noopener" class="rede-btn rede-linkedin">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.tiktok.com/@oliveiracarlosadv" target="_blank" rel="noopener" class="rede-btn rede-tiktok">
+              <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+              TikTok
+            </a>
+            <a href="https://whatsapp.com/channel/0029Vb0XWFxJENy4hlUQue2e" target="_blank" rel="noopener" class="rede-btn rede-canal">
+              <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+              Canal WhatsApp
+            </a>
+          </div>
+
+          <a href="https://g.page/r/CTiKiOLOGmyoEAI/review" target="_blank" rel="noopener" class="google-cta">
+            <div>
+              <div class="google-estrelas">★★★★★</div>
+            </div>
+            <div class="google-cta-texto">
+              <span>Avalie no Google</span>
+              <strong>Deixe sua avaliação e ajude outros clientes</strong>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="contato-cta">
+          <h3>Agende sua Consulta</h3>
+          <p>
+            O primeiro passo para resolver sua situação jurídica começa com uma conversa.
+            Entre em contato e informe sua demanda para que eu possa orientá-lo da melhor forma.
+          </p>
+
+          <div class="cta-acoes">
+            <a href="https://api.whatsapp.com/send/?phone=5591986061300&text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.&type=phone_number&app_absent=0"
+               target="_blank" rel="noopener" class="cta-link cta-link-whats">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Conversar pelo WhatsApp
+            </a>
+
+            <a href="mailto:carlos.0109adv@gmail.com?subject=Consulta%20Jurídica" class="cta-link cta-link-email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Enviar um e-mail
+            </a>
+
+            <a href="https://www.instagram.com/oliveiracarlosadv" target="_blank" rel="noopener" class="cta-link" style="background:transparent;border:1px solid rgba(255,255,255,0.20);">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Seguir no Instagram
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       RODAPÉ
+  ══════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <img src="Visual/Logo/Logo.png" alt="Carlos A. A. Oliveira Advogado" />
+          <p>OAB/PA 33996 &nbsp;|&nbsp; Belém do Pará</p>
+        </div>
+
+        <div class="footer-redes">
+          <a href="https://www.instagram.com/oliveiracarlosadv" target="_blank" rel="noopener" class="footer-rede" title="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/oliveiracarlosadv" target="_blank" rel="noopener" class="footer-rede" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@oliveiracarlosadv" target="_blank" rel="noopener" class="footer-rede" title="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.77a4.85 4.85 0 01-1.02-.08z"/></svg>
+          </a>
+          <a href="https://whatsapp.com/channel/0029Vb0XWFxJENy4hlUQue2e" target="_blank" rel="noopener" class="footer-rede" title="Canal WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Carlos A. A. Oliveira – Advogado. OAB/PA 33996. Todos os direitos reservados.</span>
+        <a href="https://lattes.cnpq.br/4151018791454248" target="_blank" rel="noopener">Currículo Lattes</a>
+      </div>
+    </div>
+
+    <div class="aviso-oab">
+      Este site tem caráter exclusivamente informativo. As informações aqui contidas não configuram captação de clientela
+      nem constituem publicidade vedada pelo Código de Ética e Disciplina da OAB. OAB/PA 33996.
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════
+       BOTÃO FLUTUANTE WHATSAPP
+  ══════════════════════════════════════ -->
+  <div class="contato-fixo">
+    <a href="https://api.whatsapp.com/send/?phone=5591986061300&text=Ol%C3%A1%2C+gostaria+de+agendar+uma+consulta.&type=phone_number&app_absent=0"
+       target="_blank" rel="noopener" class="btn-whats">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar pelo WhatsApp
     </a>
   </div>
-</section>
 
-<!-- ════════════════════════ ÁREAS DE ATUAÇÃO ════════════════════════ -->
-<section id="areas" aria-label="Áreas de atuação do escritório">
-  <div class="areas-header fi">
-    <div class="sec-label" style="justify-content:center;"><span>Especialidades</span></div>
-    <h2 class="sec-title">Áreas de Atuação</h2>
-    <p>Assessoria jurídica especializada nas principais demandas de pessoas físicas e empresas, com estratégia, ética e compromisso com o resultado.</p>
-  </div>
+  <!-- ══════════════════════════════════════
+       JAVASCRIPT
+  ══════════════════════════════════════ -->
+  <script>
+    // Menu hambúrguer
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
 
-  <div class="areas-grid">
-    <article class="area-card fi">
-      <span class="area-num">01</span>
-      <div class="area-icon">
-        <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
-      </div>
-      <h3 class="area-name">Direito do Trabalho</h3>
-      <p class="area-desc">Rescisões indevidas, verbas trabalhistas, horas extras, assédio moral, compliance trabalhista e auditoria de passivos. Defesa de empregados e empresas.</p>
-    </article>
-
-    <article class="area-card fi">
-      <span class="area-num">02</span>
-      <div class="area-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4.18L18 8v5c0 3.54-2.44 6.86-6 7.93-3.56-1.07-6-4.39-6-7.93V8l6-2.82z"/></svg>
-      </div>
-      <h3 class="area-name">Direito Penal</h3>
-      <p class="area-desc">Defesa criminal em inquéritos, processos e recursos. Crimes dolosos, culposos, crimes econômicos e habeas corpus. Atuação na investigação e julgamento.</p>
-    </article>
-
-    <article class="area-card fi">
-      <span class="area-num">03</span>
-      <div class="area-icon">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-      </div>
-      <h3 class="area-name">Direito Civil</h3>
-      <p class="area-desc">Contratos, responsabilidade civil, indenizações, relações de consumo, cobranças, revisão contratual e resolução de conflitos entre particulares.</p>
-    </article>
-
-    <article class="area-card fi">
-      <span class="area-num">04</span>
-      <div class="area-icon">
-        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
-      </div>
-      <h3 class="area-name">Compliance Empresarial</h3>
-      <p class="area-desc">Adequação de empresas à legislação trabalhista, prevenção de passivos, revisão de contratos e treinamento de gestores sobre obrigações legais.</p>
-    </article>
-
-    <article class="area-card fi">
-      <span class="area-num">05</span>
-      <div class="area-icon">
-        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
-      </div>
-      <h3 class="area-name">Consultoria Jurídica</h3>
-      <p class="area-desc">Pareceres jurídicos fundamentados, consultoria preventiva, análise de contratos e suporte estratégico para tomada de decisões empresariais e pessoais.</p>
-    </article>
-
-    <div class="area-card area-cta-card fi">
-      <p>Não encontrou sua situação? Fale conosco agora.</p>
-      <a href="https://wa.me/5591998277601?text=Preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." target="_blank" rel="noopener" class="btn-primary">Atendimento Imediato</a>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════ DESTAQUES ════════════════════════ -->
-<div id="destaques" aria-label="Destaques do escritório">
-  <div class="destaques-grid">
-    <div class="destaque-card fi">
-      <img src="https://i.postimg.cc/9MSjfBVm/IMG-2495.jpg" alt="Escritório Sampaio e Oliveira Advogados em Belém do Pará" loading="lazy">
-      <div class="destaque-overlay"></div>
-      <div class="destaque-content">
-        <span class="destaque-tag">Ex-servidor da Polícia Civil</span>
-        <h3 class="destaque-title">Visão única sobre investigação, provas e procedimentos</h3>
-        <a href="#sobre" class="btn-secondary" style="font-size:.7rem;padding:.7rem 1.4rem;">Conheça a Trajetória &rarr;</a>
-      </div>
-    </div>
-    <div class="destaque-card fi">
-      <img src="https://i.postimg.cc/W3w3yCPk/7E43EBCE-E0EB-40C3-87CC-51543661F19A.jpg" alt="Dr. Carlos Oliveira advogado especialista Belém Pará" loading="lazy">
-      <div class="destaque-overlay"></div>
-      <div class="destaque-content">
-        <span class="destaque-tag">Atendimento presencial e por videoconferência</span>
-        <h3 class="destaque-title">Advocacia para todo o Brasil, com sede em Belém do Pará</h3>
-        <a href="#contato" class="btn-secondary" style="font-size:.7rem;padding:.7rem 1.4rem;">Saiba Mais &rarr;</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ════════════════════════ SERVIÇOS ════════════════════════ -->
-<section id="servicos" aria-label="Serviços jurídicos oferecidos">
-  <div class="servicos-header fi">
-    <div class="sec-label"><span>O que oferecemos</span></div>
-    <h2 class="sec-title">Aprenda e resolva com o Dr. Carlos</h2>
-    <p>Os melhores serviços jurídicos para você proteger seus direitos e investir com segurança jurídica.</p>
-  </div>
-
-  <div class="servicos-track fi">
-    <div class="servico-card">
-      <img class="servico-card-img" src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&auto=format&fit=crop&q=70" alt="Consultoria em Direito do Trabalho" loading="lazy">
-      <div class="servico-card-body">
-        <span class="servico-tag">Direito do Trabalho</span>
-        <h4 class="servico-title">Como defender seus direitos trabalhistas com estratégia</h4>
-        <p class="servico-desc">Rescisões, horas extras, assédio e muito mais. Saiba como agir com rapidez e eficácia.</p>
-        <a href="https://wa.me/5591998277601" target="_blank" rel="noopener" class="servico-link">Saiba mais &rarr;</a>
-      </div>
-    </div>
-
-    <div class="servico-card">
-      <img class="servico-card-img" src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=600&auto=format&fit=crop&q=70" alt="Defesa Criminal em Belém" loading="lazy">
-      <div class="servico-card-body">
-        <span class="servico-tag">Direito Penal</span>
-        <h4 class="servico-title">Defesa criminal técnica desde o inquérito até o julgamento</h4>
-        <p class="servico-desc">Atuação estratégica para garantir a presunção de inocência e os direitos do acusado.</p>
-        <a href="https://wa.me/5591998277601" target="_blank" rel="noopener" class="servico-link">Saiba mais &rarr;</a>
-      </div>
-    </div>
-
-    <div class="servico-card">
-      <img class="servico-card-img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&auto=format&fit=crop&q=70" alt="Compliance Trabalhista para Empresas" loading="lazy">
-      <div class="servico-card-body">
-        <span class="servico-tag">Compliance Empresarial</span>
-        <h4 class="servico-title">Proteja sua empresa de passivos trabalhistas e multas</h4>
-        <p class="servico-desc">Adequação legal, revisão de contratos e treinamentos para gestores e RH.</p>
-        <a href="https://wa.me/5591998277601" target="_blank" rel="noopener" class="servico-link">Saiba mais &rarr;</a>
-      </div>
-    </div>
-
-    <div class="servico-card">
-      <img class="servico-card-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&auto=format&fit=crop&q=70" alt="Consultoria Jurídica Empresarial" loading="lazy">
-      <div class="servico-card-body">
-        <span class="servico-tag">Consultoria Jurídica</span>
-        <h4 class="servico-title">Pareceres jurídicos e análise preventiva de contratos</h4>
-        <p class="servico-desc">Tome decisões empresariais e pessoais com segurança jurídica e agilidade.</p>
-        <a href="https://wa.me/5591998277601" target="_blank" rel="noopener" class="servico-link">Saiba mais &rarr;</a>
-      </div>
-    </div>
-  </div>
-  <p class="hint-scroll fi">Deslize para ver mais &rarr;</p>
-</section>
-
-<!-- ════════════════════════ DIFERENCIAIS ════════════════════════ -->
-<section id="diferenciais" aria-label="Diferenciais do escritório">
-  <div class="fi">
-    <div class="sec-label"><span>Por que nos escolher</span></div>
-    <h2 class="sec-title dark">Diferenciais que<br>fazem a diferença</h2>
-
-    <div class="dif-list">
-      <div class="dif-item">
-        <div class="dif-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-        </div>
-        <div>
-          <div class="dif-title">Experiência real no serviço público</div>
-          <div class="dif-text">A passagem pela Polícia Civil do Pará proporcionou visão única sobre investigações, provas e procedimentos, aplicada diretamente na advocacia criminal e trabalhista.</div>
-        </div>
-      </div>
-
-      <div class="dif-item">
-        <div class="dif-ico">
-          <svg viewBox="0 0 24 24"><path d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z"/></svg>
-        </div>
-        <div>
-          <div class="dif-title">Advocacia estratégica e orientada a resultado</div>
-          <div class="dif-text">Cada caso é analisado com planejamento tático, identificando os melhores caminhos jurídicos para maximizar as chances de êxito do cliente.</div>
-        </div>
-      </div>
-
-      <div class="dif-item">
-        <div class="dif-ico">
-          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-        </div>
-        <div>
-          <div class="dif-title">Comunicação clara e atendimento humanizado</div>
-          <div class="dif-text">O cliente é sempre informado de forma acessível sobre o andamento do processo, sem juridiquês desnecessário, com respeito e transparência total.</div>
-        </div>
-      </div>
-
-      <div class="dif-item">
-        <div class="dif-ico">
-          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-        </div>
-        <div>
-          <div class="dif-title">Formação técnica aprofundada e constante</div>
-          <div class="dif-text">Quatro pós-graduações concluídas e especialização em andamento em Direito Tributário garantem excelência técnica em cada demanda assumida.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="dif-right fi">
-    <div>
-      <h3 class="tl-head">Formação Acadêmica</h3>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div>
-            <div class="tl-year">2023 — 2024</div>
-            <div class="tl-course">Especialização em Direito e Processo do Trabalho</div>
-            <div class="tl-inst">Universidade da Amazônia — UNAMA</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div>
-            <div class="tl-year">2021 — 2022</div>
-            <div class="tl-course">Especialização em Direito Penal e Processo Penal</div>
-            <div class="tl-inst">Centro Universitário Internacional — UNINTER</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div>
-            <div class="tl-year">2020 — 2021</div>
-            <div class="tl-course">Especialização em Direito Penal e Criminologia</div>
-            <div class="tl-inst">Instituto de Criminologia e Política Criminal — ICPC</div>
-          </div>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div>
-            <div class="tl-year">2015 — 2019</div>
-            <div class="tl-course">Bacharelado em Direito</div>
-            <div class="tl-inst">Estácio FAP — Belém, Pará</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="dif-cta-box">
-      <p>Precisa de orientação jurídica agora?</p>
-      <small>Atendemos presencialmente em Belém e por videoconferência para todo o Brasil.</small>
-      <a href="https://wa.me/5591998277601?text=Ol%C3%A1%2C%20preciso%20de%20orienta%C3%A7%C3%A3o%20jur%C3%ADdica." target="_blank" rel="noopener" class="btn-primary" style="width:100%;justify-content:center;">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Atendimento pelo WhatsApp
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════ FAQ ════════════════════════ -->
-<section id="faq" aria-label="Perguntas frequentes sobre advocacia">
-  <div class="faq-layout">
-    <div class="faq-side fi">
-      <div class="sec-label"><span>Dúvidas</span></div>
-      <h2 class="sec-title dark">Perguntas<br>Frequentes</h2>
-      <p>Não encontrou o que precisava? Entre em contato diretamente pelo WhatsApp e responderemos com agilidade.</p>
-      <a href="https://wa.me/5591998277601" target="_blank" rel="noopener" class="btn-primary" style="width:fit-content;margin-top:1.5rem;font-size:.7rem;padding:.8rem 1.6rem;">Enviar Pergunta</a>
-    </div>
-
-    <div class="faq-list fi">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Como funciona a primeira consulta?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">A primeira consulta pode ser realizada presencialmente em Belém ou por videoconferência. Nela analisamos sua situação, esclarecemos dúvidas e indicamos os melhores caminhos jurídicos, sem compromisso imediato de contratação.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Vocês atendem fora de Belém do Pará?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Sim. Realizamos atendimentos por videoconferência para clientes de qualquer estado brasileiro. Para ações em outras comarcas, avaliamos cada caso individualmente e podemos indicar parceiros de confiança quando necessário.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Quais documentos devo reunir antes da consulta?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Depende da área. Em causas trabalhistas: carteira de trabalho, contracheques, contrato e termo de rescisão. Em causas cíveis: contratos, notificações e comprovantes de pagamento. Em causas criminais: boletim de ocorrência, citações ou intimações. Oriente-se pelo WhatsApp antes da reunião.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Quanto tempo leva um processo trabalhista?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Em média, processos trabalhistas levam entre 1 e 3 anos para sentença em primeira instância. Acordos extrajudiciais podem ser concluídos em semanas. O prazo varia conforme a complexidade do caso e a comarca onde tramita.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          O escritório trabalha com honorários de êxito?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Em determinadas causas, sim. Os honorários de êxito são combinados previamente em contrato claro. Avaliamos cada situação para indicar a modalidade mais adequada. Entre em contato para uma análise individualizada do seu caso.</div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Posso ser atendido pelo WhatsApp?
-          <span class="faq-toggle">+</span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner">Sim. O WhatsApp é nosso principal canal de primeiro contato. Por ele você pode tirar dúvidas iniciais, agendar consulta e receber orientações básicas. Para análise aprofundada, agendamos uma consulta formal.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════ CONTATO ════════════════════════ -->
-<section id="contato" aria-label="Canais de contato e atendimento">
-  <div class="contato-layout">
-
-    <div class="fi">
-      <div class="sec-label"><span>Contato</span></div>
-      <h2 class="sec-title">Fale conosco<br>agora mesmo</h2>
-      <p class="contato-desc">Atendemos com agilidade e respeito. Escolha o canal de sua preferência e nossa equipe retornará em breve.</p>
-
-      <div class="channels">
-        <a href="https://wa.me/5591998277601?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="ch-item">
-          <div class="ch-icon" style="background:rgba(37,211,102,.15);">
-            <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          </div>
-          <div><div class="ch-lbl">WhatsApp</div><div class="ch-val">(91) 99827-7601</div></div>
-        </a>
-
-        <a href="https://www.instagram.com/oliveiracarlosadv" target="_blank" rel="noopener" class="ch-item">
-          <div class="ch-icon" style="background:rgba(225,48,108,.12);">
-            <svg viewBox="0 0 24 24"><defs><linearGradient id="ig2" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig2)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </div>
-          <div><div class="ch-lbl">Instagram</div><div class="ch-val">@oliveiracarlosadv</div></div>
-        </a>
-
-        <a href="https://www.linkedin.com/in/oliveiracarlosadv" target="_blank" rel="noopener" class="ch-item">
-          <div class="ch-icon" style="background:rgba(0,119,181,.15);">
-            <svg viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </div>
-          <div><div class="ch-lbl">LinkedIn</div><div class="ch-val">oliveiracarlosadv</div></div>
-        </a>
-
-        <a href="https://www.tiktok.com/@oliveiracarlosadv" target="_blank" rel="noopener" class="ch-item">
-          <div class="ch-icon" style="background:rgba(255,255,255,.07);">
-            <svg viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-10.69a8.2 8.2 0 004.79 1.52V2.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-          </div>
-          <div><div class="ch-lbl">TikTok</div><div class="ch-val">@oliveiracarlosadv</div></div>
-        </a>
-      </div>
-    </div>
-
-    <div class="contato-right fi">
-      <div class="info-box">
-        <h3>Informações de Atendimento</h3>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          <div><div class="info-lbl">Localização</div><div class="info-val">Belém, Pará — Brasil</div></div>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-          <div><div class="info-lbl">Telefone e WhatsApp</div><div class="info-val">(91) 99827-7601</div></div>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
-          <div><div class="info-lbl">Horário de atendimento</div><div class="info-val">Segunda a Sexta, das 8h às 18h</div></div>
-        </div>
-        <div class="info-row">
-          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-          <div><div class="info-lbl">Atendimento online</div><div class="info-val">Para todo o Brasil via videoconferência</div></div>
-        </div>
-      </div>
-
-      <div class="info-box">
-        <h3>Envie sua mensagem</h3>
-        <form class="contact-form" onsubmit="submitForm(event)">
-          <input type="hidden" name="_subject" value="Novo contato pelo site — Sampaio &amp; Oliveira!">
-          <input type="hidden" name="_captcha" value="false">
-          <div class="fg">
-            <label>Seu nome completo</label>
-            <input type="text" name="Nome" placeholder="Como posso te chamar?" required>
-          </div>
-          <div class="fg">
-            <label>E-mail ou WhatsApp</label>
-            <input type="text" name="Contato" placeholder="Seu melhor contato" required>
-          </div>
-          <div class="fg">
-            <label>Área de interesse</label>
-            <select name="Area">
-              <option value="">Selecione a área do seu caso</option>
-              <option>Direito do Trabalho</option>
-              <option>Direito Penal</option>
-              <option>Direito Civil</option>
-              <option>Compliance Empresarial</option>
-              <option>Consultoria Jurídica</option>
-              <option>Outra área</option>
-            </select>
-          </div>
-          <div class="fg">
-            <label>Descreva sua situação</label>
-            <textarea name="Mensagem" placeholder="Conte brevemente o que está acontecendo. Tudo é tratado com total sigilo." required></textarea>
-          </div>
-          <button type="submit" class="btn-form">Enviar Mensagem</button>
-        </form>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ════════════════════════ BARRA SOCIAL ════════════════════════ -->
-<div class="social-bar">
-  <a href="https://www.instagram.com/oliveiracarlosadv" target="_blank" rel="noopener" aria-label="Instagram">
-    <svg viewBox="0 0 24 24"><defs><linearGradient id="ig-bar" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig-bar)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    Instagram
-  </a>
-  <a href="https://www.linkedin.com/in/oliveiracarlosadv" target="_blank" rel="noopener" aria-label="LinkedIn">
-    <svg viewBox="0 0 24 24" fill="#0077B5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-    LinkedIn
-  </a>
-  <a href="https://www.tiktok.com/@oliveiracarlosadv" target="_blank" rel="noopener" aria-label="TikTok">
-    <svg viewBox="0 0 24 24" fill="#ffffff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34l-.01-10.69a8.2 8.2 0 004.79 1.52V2.75a4.85 4.85 0 01-1.01-.06z"/></svg>
-    TikTok
-  </a>
-  <a href="https://whatsapp.com/channel/0029Vb0XWFxJENy4hlUQue2e" target="_blank" rel="noopener" aria-label="Canal WhatsApp">
-    <svg viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    Canal WhatsApp
-  </a>
-  <a href="https://lattes.cnpq.br/4151018791454248" target="_blank" rel="noopener" aria-label="Currículo Lattes">
-    <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-    Currículo Lattes
-  </a>
-</div>
-
-<!-- ════════════════════════ RODAPÉ ════════════════════════ -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-logo">
-      <img src="https://i.postimg.cc/25XGpLjf/00-COLORIDO300DPI.png" alt="Sampaio e Oliveira Advogados">
-    </div>
-    <div class="footer-oab">
-      Dr. Carlos Alexandre Albuquerque Oliveira &mdash; Advogado Habilitado OAB-PA &mdash; Belém, Pará &mdash; Brasil
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">&copy; 2026 Sampaio e Oliveira Advogados. Todos os direitos reservados.</div>
-    <div class="footer-disc">Este site tem caráter informativo e não representa consulta jurídica. O relacionamento entre advogado e cliente se inicia mediante contratação formal.</div>
-  </div>
-</footer>
-
-<!-- ════════════════════════ WHATSAPP FLUTUANTE ════════════════════════ -->
-<div class="wpp-float">
-  <div class="wpp-bubble">Fale com um advogado agora!</div>
-  <a href="https://wa.me/5591998277601?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20uma%20consulta." target="_blank" rel="noopener" class="wpp-btn" aria-label="Contato pelo WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-</div>
-
-<script>
-  /* Navegação mobile */
-  function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
-  function closeMenu()  { document.getElementById('navLinks').classList.remove('open'); }
-
-  /* FAQ accordion */
-  function toggleFaq(btn) {
-    const item = btn.parentElement;
-    const aberto = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!aberto) item.classList.add('open');
-  }
-
-  /* Fade-in ao scroll */
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('aberto');
     });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fi').forEach(el => obs.observe(el));
 
-  /* Navbar scroll compacto */
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 60) {
-      nav.style.height = '58px';
-      nav.style.background = 'rgba(13,13,13,.99)';
-    } else {
-      nav.style.height = '70px';
-      nav.style.background = 'rgba(13,13,13,.96)';
-    }
-  });
-
-  /* Formulário FormSubmit */
-  function submitForm(e) {
-    e.preventDefault();
-    const form = e.target;
-    const btn = form.querySelector('.btn-form');
-    const orig = btn.textContent;
-    btn.textContent = 'Enviando...';
-    btn.disabled = true;
-
-    fetch('https://formsubmit.co/ajax/carlos.0109adv@gmail.com', {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(r => r.json())
-    .then(() => {
-      btn.textContent = 'Mensagem enviada!';
-      btn.style.background = '#2a6041';
-      btn.style.color = '#fff';
-      setTimeout(() => {
-        btn.textContent = orig;
-        btn.style.background = '';
-        btn.style.color = '';
-        btn.disabled = false;
-        form.reset();
-      }, 4000);
-    })
-    .catch(() => {
-      btn.textContent = 'Erro — tente novamente.';
-      btn.disabled = false;
-      setTimeout(() => { btn.textContent = orig; }, 4000);
+    // Fechar menu ao clicar em link
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => links.classList.remove('aberto'));
     });
-  }
-</script>
+
+    // Scroll suave com offset para o cabeçalho fixo
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          const offset = document.querySelector('header').offsetHeight + 16;
+          window.scrollTo({ top: el.offsetTop - offset, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
