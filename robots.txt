@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oliveiracarlos.adv.br/sitemap.xml
