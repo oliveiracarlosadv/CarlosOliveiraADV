@@ -41,3 +41,9 @@ O site tem caráter exclusivamente informativo e segue o Código de Ética e Dis
 © 2026 Carlos A. A. Oliveira – Advogados. Todos os direitos reservados.
 
 Os textos, as fotografias, os logotipos e a identidade visual são de minha titularidade e não podem ser reutilizados sem autorização. O código está publicado para fins de transparência e hospedagem.
+
+## Licença
+
+Código licenciado sob a [Licença MIT](LICENSE) — © 2026 Carlos Alexandre Albuquerque Oliveira. Você pode usar, copiar, modificar e distribuir, inclusive para fins comerciais, desde que mantenha o aviso de direitos autorais e a licença.
+
+O nome, a marca e o logotipo do projeto **não** estão incluídos na licença e não podem ser usados para sugerir endosso ou vínculo sem autorização.
