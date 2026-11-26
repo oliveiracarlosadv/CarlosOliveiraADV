@@ -121,7 +121,15 @@ Na seção `id="lex"`, cada produto é um bloco `<div class="produto">`. A etiqu
 - **`canonical`:** indica o endereço oficial (`https://oliveiracarlos.adv.br/`).
 - **`sitemap.xml` e `robots.txt`:** ajudam o Google a encontrar todas as páginas.
 
+- **Metatags de busca:** `keywords` (termos como "advogado em Belém", "advogado trabalhista Belém"), `author`, `robots`/`googlebot` (indexação liberada, com prévia grande de imagem), idioma `pt-BR` e `hreflang`.
+- **Busca local:** `geo.region` (BR-PA), `geo.placename` e coordenadas de Belém. O JSON-LD informa as cidades atendidas (Belém, Ananindeua, Marituba, Pará e Brasil).
+- **JSON-LD em grafo:** `WebSite`, `WebPage`, `LegalService`/`LocalBusiness` (com catálogo das 5 áreas, contato e redes) e `Person` (OAB/PA 33.996, formação e perfis).
+- **Twitter/X:** título, descrição e imagem próprios.
+- **Google Search Console:** há um comentário no `<head>` indicando onde colar a tag `google-site-verification`, caso a propriedade seja confirmada por metatag.
+
 Depois de mudanças grandes, envie o sitemap de novo no Google Search Console.
+
+> **Importante:** metatags ajudam o Google a entender o site, mas não garantem posição. O que mais pesa na busca local é o **Perfil da Empresa no Google** (nome, categoria "Advogado", fotos, avaliações), links de outros sites e conteúdo novo com frequência.
 
 ## 8. Acessibilidade
 
@@ -144,4 +152,5 @@ Ao acrescentar conteúdo, mantenha esses cuidados.
 | Versão | Data | Mudanças |
 |---|---|---|
 | 1.x | 2025 – jun. 2026 | Primeira landing page |
+| 2.1 | 25/11/2026 | Metatags de busca, busca local, Twitter/X e JSON-LD ampliado |
 | 2.0 | nov. 2026 | Novo visual (modo escuro, animações, menu lateral), fotos e logos novos, nome "Carlos A. A. Oliveira – Advogados", seções "Como funciona", formação em linha do tempo, artigos via Medium e Lex Tecnologias, imagens hospedadas no próprio repositório, manifesto, sitemap e robots atualizados |
